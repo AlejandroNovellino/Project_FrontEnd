@@ -10,7 +10,7 @@ export const Home = () => {
 		<Container fluid className="bg-primary p-5">
 			<Container className="inputsWrapper align-items-center bg-light border border-dark rounded-lg p-4">
 				<Row className="justify-content-center h-100 m-0">
-					<Col lg={10} className="">
+					<Col lg={10} className="d-flex align-items-center">
 						<Form.Control
 							type="input"
 							placeholder="Email"
@@ -19,7 +19,7 @@ export const Home = () => {
 							onChange={e => setEmail(e.target.value)}
 						/>
 					</Col>
-					<Col lg={10} className="">
+					<Col lg={10} className="d-flex align-items-center">
 						<Form.Control
 							type="password"
 							placeholder="Password"
@@ -27,7 +27,7 @@ export const Home = () => {
 							onChange={e => setPassword(e.target.value)}
 						/>
 					</Col>
-					<Col lg={5} className="">
+					<Col lg={5} className="d-flex align-items-center">
 						<Button variant="primary" className="btn-block">
 							Sign-in
 						</Button>
