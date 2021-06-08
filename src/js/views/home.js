@@ -7,7 +7,7 @@ export const Home = () => {
 	const [password, setPassword] = useState("");
 
 	return (
-		<Container fluid className="bg-primary p-5">
+		<Container fluid className="d-flex align-items-center bg-primary p-5 h-100">
 			<Container className="inputsWrapper align-items-center bg-light border border-dark rounded-lg p-4">
 				<Row className="justify-content-center h-100 m-0">
 					<Col lg={10} className="d-flex align-items-center">
