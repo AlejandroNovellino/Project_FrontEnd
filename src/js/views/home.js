@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 
 export const Home = () => {
