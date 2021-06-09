@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { SignIn } from "./views/signIn";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
@@ -23,7 +23,7 @@ const Layout = () => {
 					<AppNavbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<SignIn />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

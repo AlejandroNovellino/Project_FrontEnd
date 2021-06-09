@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Navbar, Form, Button } from "react-bootstrap";
-import "../../styles/home.scss";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import "../../styles/signIn.scss";
 
-export const Home = () => {
+export const SignIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
