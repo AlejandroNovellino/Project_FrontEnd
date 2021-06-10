@@ -29,6 +29,19 @@ export const AppNavbar = ({ role }) => {
 							<Nav.Link href="#">Profesores</Nav.Link>
 						</>
 					) : null}
+					{store.user && store.user.role == "coordinator" ? (
+						<>
+							<Nav.Link href="#">MisMaterias</Nav.Link>
+							<Nav.Link href="#">MisProfesores</Nav.Link>
+							<Nav.Link href="#">MisAlumnos</Nav.Link>
+						</>
+					) : null}
+					{store.user && store.user.role == "professor" ? (
+						<>
+							<Nav.Link href="#">MisMaterias</Nav.Link>
+							<Nav.Link href="#">MisAlumnos</Nav.Link>
+						</>
+					) : null}
 				</Nav>
 				<Nav className="ml-auto">
 					{store.token ? (

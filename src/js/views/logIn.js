@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/signIn.scss";
 
-export const SignIn = () => {
+export const LogIn = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 
@@ -44,7 +44,7 @@ export const SignIn = () => {
 					</Col>
 					<Col lg={5} className="d-flex align-items-center">
 						<Button variant="primary" className="btn-block" onClick={signIn}>
-							Sign-in
+							Log-in
 						</Button>
 					</Col>
 				</Row>

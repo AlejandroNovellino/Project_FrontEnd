@@ -19,20 +19,20 @@ export const Home = () => {
 				<Col md={3} className="bg-white h-100">
 					<Nav variant="pills" defaultActiveKey="" className="flex-column">
 						<Nav.Item>
-							{store.role == "coordinator" ? (
+							{store.user.role == "coordinator" ? (
 								<Nav.Link eventKey="graphs" className="text-center">
-									Tables
+									Planes
 								</Nav.Link>
 							) : null}
 						</Nav.Item>
 						<Nav.Item>
 							<Nav.Link eventKey="graphs" className="text-center">
-								Graphs
+								Graficos
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
 							<Nav.Link eventKey="reports" className="text-center">
-								Reports
+								Reportes
 							</Nav.Link>
 						</Nav.Item>
 					</Nav>
