@@ -1,26 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Navbar, Form } from "react-bootstrap";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const AppNavbar = () => {
+import { Context } from "../store/appContext";
+
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+
+export const AppNavbar = ({ role }) => {
+	const { store, actions } = useContext(Context);
+	const history = useHistory();
+
+	const logOut = _ => {
+		history.push("/");
+		actions.logOut();
+	};
+
 	return (
-		<Navbar bg="light" expand="lg">
-			<Container>
-				<Navbar.Brand href="#">UMetricAcademy</Navbar.Brand>
-			</Container>
+		<Navbar bg="light" expand="md">
+			<Navbar.Brand href="#">UMetricAcademy</Navbar.Brand>
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
+			<Navbar.Collapse id="basic-navbar-nav">
+				<Nav className="mr-auto">
+					{store.user && store.user.role == "admin" ? (
+						<>
+							<Nav.Link href="#">Carreras</Nav.Link>
+							<Nav.Link href="#">Materias</Nav.Link>
+							<Nav.Link href="#">Profesores</Nav.Link>
+						</>
+					) : null}
+				</Nav>
+				<Nav className="ml-auto">
+					{store.token ? (
+						<Button variant="danger" size="sm" className="btn-block" onClick={logOut}>
+							Log-out
+						</Button>
+					) : (
+						<Nav.Link href="#">Help</Nav.Link>
+					)}
+				</Nav>
+			</Navbar.Collapse>
 		</Navbar>
 	);
 };
 
-{
-	/* <nav className="navbar navbar-light bg-light mb-3">
-	<Link to="/">
-		<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-	</Link>
-	<div className="ml-auto">
-		<Link to="/demo">
-			<button className="btn btn-primary">Check the Context in action</button>
-		</Link>
-	</div>
-</nav> */
-}
+AppNavbar.propTypes = {
+	role: PropTypes.string
+};

@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			token: "",
+			user: {},
 			demo: [
 				{
 					title: "FIRST",
@@ -37,7 +39,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			logIn: async (email, password) => {
+				let response = await fetch("http://192.168.0.111:4000/log-in", {
+					method: "POST",
+					body: JSON.stringify({
+						email,
+						password
+					}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				if (response.ok) {
+					let body = await response.json();
+					setStore({
+						token: body.token,
+						user: body.user
+					});
+					localStorage.setItem("token", body.token);
+					localStorage.setItem("user", JSON.stringify(body.user));
+					return true;
+				}
+				return false;
+			},
+			logOut: _ => {
+				setStore({
+					token: "",
+					user: null
+				});
+				localStorage.removeItem("token");
+				localStorage.removeItem("user");
+			},
+			setToken: (token, user) => {
+				setStore({
+					token,
+					user: JSON.parse(user)
+				});
+			},
+			setRole: () => {}
 		}
 	};
 };

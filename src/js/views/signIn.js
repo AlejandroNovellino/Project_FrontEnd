@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Context } from "../store/appContext";
+
 import "../../styles/signIn.scss";
 
 export const SignIn = () => {
+	const { store, actions } = useContext(Context);
+	const history = useHistory();
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const signIn = async _ => {
+		let result = await actions.logIn(email, password);
+		if (result) {
+			history.push("/home");
+		} else {
+			alert("Bad credentials");
+		}
+	};
 
 	return (
 		<Container fluid className="d-flex align-items-center bg-primary p-5 h-100">
@@ -28,7 +43,7 @@ export const SignIn = () => {
 						/>
 					</Col>
 					<Col lg={5} className="d-flex align-items-center">
-						<Button variant="primary" className="btn-block">
+						<Button variant="primary" className="btn-block" onClick={signIn}>
 							Sign-in
 						</Button>
 					</Col>
