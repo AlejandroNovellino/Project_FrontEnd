@@ -8,6 +8,11 @@ import { Single } from "./views/single";
 import { Home } from "./views/home";
 
 import injectContext from "./store/appContext";
+import { Admin } from "./views/admin";
+import { Carreras } from "./views/carreras";
+import { Estudiantes } from "./views/estudiantes";
+import { Materias } from "./views/materias";
+import { Profesores } from "./views/profesores";
 
 import { AppNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -26,6 +31,21 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<LogIn />
+						</Route>
+						<Route exact path="/admin">
+							<Admin />
+						</Route>
+						<Route exact path="/profesores">
+							<Profesores />
+						</Route>
+						<Route exact path="/materias">
+							<Materias />
+						</Route>
+						<Route exact path="/estudiantes">
+							<Estudiantes />
+						</Route>
+						<Route exact path="/carreras">
+							<Carreras />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
