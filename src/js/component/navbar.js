@@ -5,17 +5,7 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 import { Link } from "react-router-dom";
-import {
-	Container,
-	Row,
-	Col,
-	Navbar,
-	Nav,
-	NavDropdown,
-	Form,
-	FormControl,
-	Button,
-} from "react-bootstrap";
+import { Container, Row, Col, Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 
 export const AppNavbar = ({ role }) => {
 	const { store, actions } = useContext(Context);
@@ -55,11 +45,7 @@ export const AppNavbar = ({ role }) => {
 				</Nav>
 				<Nav className="ml-auto">
 					{store.token ? (
-						<Button
-							variant="danger"
-							size="sm"
-							className="btn-block"
-							onClick={logOut}>
+						<Button variant="danger" size="sm" className="btn-block" onClick={logOut}>
 							Log-out
 						</Button>
 					) : (
@@ -72,5 +58,5 @@ export const AppNavbar = ({ role }) => {
 };
 
 AppNavbar.propTypes = {
-	role: PropTypes.string,
+	role: PropTypes.string
 };
