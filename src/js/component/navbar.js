@@ -23,11 +23,35 @@ export const AppNavbar = ({ role }) => {
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
 					{store.user && store.user.role == "admin" ? (
-						<>
-							<Nav.Link href="/carreras">Carreras</Nav.Link>
-							<Nav.Link href="#">Materias</Nav.Link>
-							<Nav.Link href="#">Profesores</Nav.Link>
-						</>
+					<>
+						<SplitButton
+							key={Materias}
+							id={`dropdown-button-drop-${Materias}`}
+							drop={Materias}
+							variant="secondary"
+							title={`Drop ${Materias}`}
+						>
+							<Dropdown.Item eventKey="1">Añadir Materias</Dropdown.Item>
+						</SplitButton>
+						<SplitButton
+							key={Profesores}
+							id={`dropdown-button-drop-${Profesores}`}
+							drop={Profesores}
+							variant="secondary"
+							title={`Drop ${Profesores}`}
+						>
+							<Dropdown.Item eventKey="1">Añadir Profesores</Dropdown.Item>
+						</SplitButton>
+						<SplitButton
+							key={Estudiantes}
+							id={`dropdown-button-drop-${Estudiantes}`}
+							drop={Estudiantes}
+							variant="secondary"
+							title={`Drop ${Estudiantes}`}
+						>
+							<Dropdown.Item eventKey="1">Añadir Estudiantes</Dropdown.Item>
+						</SplitButton>
+					</>
 					) : null}
 					{store.user && store.user.role == "coordinator" ? (
 						<>
