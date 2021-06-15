@@ -1,9 +1,16 @@
 //import react into the bundle
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export const Profesores = () => {
+	const [Name, setname] = useState("");
+	const [email, setemail] = useState("");
+	const[DNI, setDni] = useState("");
+	const [phonenumber, setphonenumber] = useState("");
+	const [age, setage] = useState("");
+	const [direction, setdirection] = useState("");
+
 	return (
 		<Container className="d-flex align-items-center flex-column h-100">
 			<Row>
@@ -14,30 +21,30 @@ export const Profesores = () => {
 			<Row className="m-auto">
 				<Form className="container-fluid">
 					<Form.Row>
-						<Form.Group as={Col} controlId="formGridName">
+						<Form.Group as={Col}>
 							<Form.Label>Nombre Completo</Form.Label>
-							<Form.Control type="Name" placeholder="Nombre Completo" />
+							<Form.Control type="Name" placeholder="Nombre Completo" value={Name} onChange={e => setname(e.target.value)}/>
 						</Form.Group>
 
-						<Form.Group as={Col} controlId="formGridEmail">
+						<Form.Group as={Col}>
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="Email" placeholder="Email" />
+							<Form.Control type="Email" placeholder="Email" value={email} onChange={e => setemail(e.target.value)}/>
 						</Form.Group>
 					</Form.Row>
-					<Form.Row className="d-flex justify-content-between">
-						<Form.Group controlId="formGridDNI">
+					<Form.Row className="d-flex justify-content-between" >
+						<Form.Group>
 							<Form.Label>Cedula</Form.Label>
-							<Form.Control placeholder="Cedula" />
+							<Form.Control placeholder="Cedula" value={DNI} onChange={e => setDni(e.target.value)}/>
 						</Form.Group>
 
-						<Form.Group controlId="formGridPhoneNumber">
+						<Form.Group>
 							<Form.Label>Número de Telefono </Form.Label>
-							<Form.Control placeholder="Telefono" />
+							<Form.Control placeholder="Telefono" value={phonenumber} onChange={e => setphonenumber(e.target.value)}/>
 						</Form.Group>
 
-						<Form.Group controlId="formGridAge">
+						<Form.Group >
 							<Form.Label>Edad</Form.Label>
-							<Form.Control placeholder="Edad" />
+							<Form.Control placeholder="Edad" value={age} onChange={e => setage(e.target.value)}/>
 						</Form.Group>
 					</Form.Row>
 					<Form.Row>
@@ -46,9 +53,9 @@ export const Profesores = () => {
 							<Form.Control />
 						</Form.Group>
 
-						<Form.Group as={Col} controlId="formGridaddress">
+						<Form.Group as={Col}>
 							<Form.Label>Dirección</Form.Label>
-							<Form.Control placeholder="Dirección" />
+							<Form.Control placeholder="Dirección" value={direction} onChange={e => setdirection(e.target.value)}/>
 						</Form.Group>
 					</Form.Row>
 					<Form.Row>

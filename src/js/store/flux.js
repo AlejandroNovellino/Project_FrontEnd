@@ -78,6 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 			setRole: () => {}
+			
 		}
 	};
 };
