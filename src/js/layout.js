@@ -13,6 +13,7 @@ import { Carreras } from "./views/carreras";
 import { Estudiantes } from "./views/estudiantes";
 import { Materias } from "./views/materias";
 import { Profesores } from "./views/profesores";
+import { AddStudents } from "./views/adminViews/addStudents";
 
 import { AppNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -55,6 +56,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/home">
 							<Home />
+						</Route>
+						<Route exact path="/addStudents">
+							<AddStudents />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
