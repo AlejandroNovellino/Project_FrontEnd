@@ -9,7 +9,7 @@ export const Profesores = () => {
 			<Row>
 				<Col xs={12}>
 					<h2 className="m-auto"> Añadir profesor: </h2>
-				</Col>
+				</Col>   
 			</Row>
 			<Row className="m-auto">
 				<Form className="container-fluid">

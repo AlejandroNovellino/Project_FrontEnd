@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Container, Dropdown, SplitButton, Row, Col, Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 
 export const AppNavbar = ({ role }) => {
 	const { store, actions } = useContext(Context);
