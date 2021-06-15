@@ -40,6 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+
 			logIn: async (email, password) => {
 				let response = await fetch("http://192.168.0.111:4000/log-in", {
 					method: "POST",
@@ -63,6 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				return false;
 			},
+
 			logOut: _ => {
 				setStore({
 					token: "",
@@ -71,14 +73,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token");
 				localStorage.removeItem("user");
 			},
+
 			setToken: (token, user) => {
 				setStore({
 					token,
 					user: JSON.parse(user)
 				});
 			},
-			setRole: () => {}
-			
+			setRole: () => {},
+
+			saveDatateacher: async(name, email, dni, phonenumber, age, direction) => {
+				let response = await fetch("http://192.168.0.111:4000/professor", {
+					method = "POST",
+					body: JSON.stringify({
+						name,email,dni,phonenumber,age,direction}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				return response.ok;
+					
+			}
 		}
 	};
 };

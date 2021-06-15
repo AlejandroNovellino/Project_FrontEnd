@@ -4,9 +4,9 @@ import ReactDOM from "react-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export const Profesores = () => {
-	const [Name, setname] = useState("");
+	const [name, setname] = useState("");
 	const [email, setemail] = useState("");
-	const[DNI, setDni] = useState("");
+	const[dni, setDni] = useState("");
 	const [phonenumber, setphonenumber] = useState("");
 	const [age, setage] = useState("");
 	const [direction, setdirection] = useState("");
@@ -23,7 +23,11 @@ export const Profesores = () => {
 					<Form.Row>
 						<Form.Group as={Col}>
 							<Form.Label>Nombre Completo</Form.Label>
-							<Form.Control type="Name" placeholder="Nombre Completo" value={Name} onChange={e => setname(e.target.value)}/>
+							<Form.Control 
+							type="Name"
+							placeholder="Nombre Completo" 
+							value={name} 
+							onChange={e => setname(e.target.value)}/>
 						</Form.Group>
 
 						<Form.Group as={Col}>
@@ -34,7 +38,7 @@ export const Profesores = () => {
 					<Form.Row className="d-flex justify-content-between" >
 						<Form.Group>
 							<Form.Label>Cedula</Form.Label>
-							<Form.Control placeholder="Cedula" value={DNI} onChange={e => setDni(e.target.value)}/>
+							<Form.Control placeholder="Cedula" value={dni} onChange={e => setDni(e.target.value)}/>
 						</Form.Group>
 
 						<Form.Group>
@@ -61,12 +65,12 @@ export const Profesores = () => {
 					<Form.Row>
 						<Form.Group as={Col} controlId="formGridCarrer">
 							<Form.Label>Carrera</Form.Label>
-							<Form.Control placeholder="Carrera" />
+							<Form.Control placeholder="Carrera"/>
 						</Form.Group>
 
-						<Form.Group as={Col} controlId="formGridRole">
+						<Form.Group as={Col}>
 							<Form.Label>Roll</Form.Label>
-							<Form.Control as="select" defaultValue="Choose...">
+							<Form.Control as="select" defaultValue="Choose..." >
 								<option>coordinator</option>
 								<option>Profesor</option>
 							</Form.Control>
