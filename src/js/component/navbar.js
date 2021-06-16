@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import u_metric_academy from "../../img/u_metric_academy.jpg";
 import { Context } from "../store/appContext";
 
 import { Link } from "react-router-dom";
@@ -33,6 +33,9 @@ export const AppNavbar = ({ role }) => {
 
 	return (
 		<Navbar bg="light" expand="md">
+			<Navbar.Brand>
+				<img src={u_metric_academy} width="40" height="40" className="d-inline-block align-top" />
+			</Navbar.Brand>
 			<Navbar.Brand href="/home">UMetricAcademy</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
@@ -64,9 +67,6 @@ export const AppNavbar = ({ role }) => {
 					) : null}
 					{store.user && store.user.role == "coordinator" ? (
 						<>
-							<Nav.Link href="#">MisMaterias</Nav.Link>
-							<Nav.Link href="#">MisProfesores</Nav.Link>
-							<Nav.Link href="#">MisAlumnos</Nav.Link>
 							<SplitButton variant="secondary" title={"MisMaterias"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
 									Añadir Materias
