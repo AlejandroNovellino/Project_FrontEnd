@@ -33,13 +33,13 @@ export const AppNavbar = ({ role }) => {
 
 	return (
 		<Navbar bg="light" expand="md">
-			<Navbar.Brand href="#">UMetricAcademy</Navbar.Brand>
+			<Navbar.Brand href="/home">UMetricAcademy</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
 					{store.user && store.user.role == "admin" ? (
 						<>
-							<SplitButton variant="secondary" title={"Materias"} className="mx-1">
+							<SplitButton variant="secondary" title={"Carreras"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
 									Añadir Materias
 								</Dropdown.Item>

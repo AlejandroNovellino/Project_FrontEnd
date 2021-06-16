@@ -77,7 +77,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					user: JSON.parse(user)
 				});
 			},
-			setRole: () => {}
+			setRole: () => {},
+			uploadFile: async file => {
+				const response = await fetch("http://192.168.0.111:4000/upload-file", {
+					method: "POST",
+					body: file,
+					headers: {
+						"Content-Type": "multipart/form-data"
+					}
+				});
+
+				if (response.ok) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 		}
 	};
 };
