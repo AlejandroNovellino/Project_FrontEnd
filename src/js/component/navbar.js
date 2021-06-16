@@ -45,7 +45,10 @@ export const AppNavbar = ({ role }) => {
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"Profesores"} className="mx-1">
-								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
+								<Dropdown.Item
+									eventKey="1"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addProfessor")}>
 									Añadir Profesores
 								</Dropdown.Item>
 							</SplitButton>

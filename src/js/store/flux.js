@@ -3,18 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: "",
 			user: {},
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			nationalities: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -26,21 +15,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
-
 			logIn: async (email, password) => {
 				let response = await fetch("http://192.168.0.111:4000/log-in", {
 					method: "POST",
@@ -80,14 +54,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					user: JSON.parse(user)
 				});
 			},
-			setRole: () => {},
-			uploadFile: async file => {
+			uploadFile: async myFile => {
 				const response = await fetch("http://192.168.0.111:4000/upload-file", {
 					method: "POST",
-					body: file,
-					headers: {
-						"Content-Type": "multipart/form-data"
-					}
+					body: myFile
 				});
 
 				if (response.ok) {
@@ -96,16 +66,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
-			saveDatateacher: async (name, email, dni, phonenumber, age, direction) => {
+			getAllCountries: async _ => {
+				let response = await fetch("https://restcountries.eu/rest/v2/all?fields=name");
+
+				if (response.ok) {
+					const data = await response.json();
+					setStore({
+						nationalities: data
+					});
+				} else {
+					return null;
+				}
+			},
+			createProfessor: async (fullName, email, ci, phoneNumber, age, residence, career) => {
 				let response = await fetch("http://192.168.0.111:4000/professor", {
 					method: "POST",
 					body: JSON.stringify({
-						name,
+						fullName,
 						email,
-						dni,
-						phonenumber,
+						ci,
+						phoneNumber,
 						age,
-						direction
+						residence,
+						career
 					}),
 					headers: {
 						"Content-Type": "application/json"

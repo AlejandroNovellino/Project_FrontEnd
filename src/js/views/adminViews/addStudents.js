@@ -11,11 +11,15 @@ export const AddStudents = () => {
 
 	const [file, setFile] = useState(null);
 
-	const uploadFile = async _ => {
+	const uploadFile = async e => {
+		let myFile = file;
+		console.log(myFile.name);
+
 		const formData = new FormData();
-		formData.append("file", file);
-		console.log(formData);
-		await actions.uploadFile(formData);
+		formData.append("myFile", myFile);
+
+		const response = await actions.uploadFile(formData);
+
 		history.push("/home");
 	};
 
@@ -35,12 +39,10 @@ export const AddStudents = () => {
 						<input
 							type="file"
 							className="custom-file-input"
-							id="file"
+							name="myFile"
 							onChange={e => setFile(e.target.files[0])}
 						/>
-						<label className="custom-file-label m-auto w-75" htmlFor="customFile">
-							{file ? file.name : "Choose File"}
-						</label>
+						<label className="custom-file-label m-auto w-75">{file ? file.name : "Choose File"}</label>
 					</div>
 				</Row>
 				<Row className="h-25">
