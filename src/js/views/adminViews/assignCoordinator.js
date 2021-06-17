@@ -6,10 +6,10 @@ import { Container, Row, Col, Form, Button, option} from "react-bootstrap";
 export const assignCoordinator = () => {
 	return (
 		<div>
-			<h1 className="titulo"> asignar Coordinador </h1>
+			<h2 className="titulo"> asignar Coordinador </h2>
             <Form>
                 <Form.Group controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="name@example.com" />
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlSelect1">
