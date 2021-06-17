@@ -77,17 +77,17 @@ export const AppNavbar = ({ role }) => {
 						<>
 							<SplitButton variant="secondary" title={"MisMaterias"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Materias
+									Añadir plan de evaluación 
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"MisProfesores"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Profesores
+									Profesores
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"MisEstudiantes"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Estudiantes
+									Estudiantes
 								</Dropdown.Item>
 							</SplitButton>
 						</>
@@ -96,12 +96,12 @@ export const AppNavbar = ({ role }) => {
 						<>
 							<SplitButton variant="secondary" title={"MisMaterias"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Materias
+									Materias
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"MisEstudiantes"} className="mx-1">
 								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Estudiantes
+									Estudiantes
 								</Dropdown.Item>
 							</SplitButton>
 						</>
