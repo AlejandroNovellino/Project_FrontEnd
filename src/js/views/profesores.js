@@ -11,34 +11,31 @@ export const Profesores = () => {
 				<Card>
 					<Card.Img variant="top" src="holder.js/100px160" />
 					<Card.Body>
-					<Card.Title>Nombre del profesor</Card.Title>
-					<Card.Text> carrera, materias 
-					</Card.Text>
+						<Card.Title>Nombre del profesor</Card.Title>
+						<Card.Text> carrera, materias</Card.Text>
 					</Card.Body>
 					<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
+						<small className="text-muted">Last updated 3 mins ago</small>
 					</Card.Footer>
 				</Card>
 				<Card>
 					<Card.Img variant="top" src="holder.js/100px160" />
 					<Card.Body>
-					<Card.Title>nombre del profesor</Card.Title>
-					<Card.Text> carrera, materias 
-					</Card.Text>
+						<Card.Title>nombre del profesor</Card.Title>
+						<Card.Text> carrera, materias</Card.Text>
 					</Card.Body>
 					<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
+						<small className="text-muted">Last updated 3 mins ago</small>
 					</Card.Footer>
 				</Card>
 				<Card>
 					<Card.Img variant="top" src="holder.js/100px160" />
 					<Card.Body>
-					<Card.Title>Nombre del Profesor</Card.Title>
-					<Card.Text> carrera, materias 
-					</Card.Text>
+						<Card.Title>Nombre del Profesor</Card.Title>
+						<Card.Text> carrera, materias</Card.Text>
 					</Card.Body>
 					<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
+						<small className="text-muted">Last updated 3 mins ago</small>
 					</Card.Footer>
 				</Card>
 			</CardColumns>

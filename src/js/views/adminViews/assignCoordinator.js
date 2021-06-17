@@ -29,14 +29,10 @@ export const assignCoordinator = () => {
                     <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
                     <Card.Body>
                         <Card.Title>Nombre del profesor</Card.Title>
-                        <Card.Text>
-                        informacion del profesor 
-                        </Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>Carrera</ListGroupItem>
                         <ListGroupItem>materias</ListGroupItem>
-                        <ListGroupItem></ListGroupItem>
                     </ListGroup>
                 </Card>
             </Row>

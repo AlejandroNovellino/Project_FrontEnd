@@ -13,12 +13,11 @@ export const AddStudents = () => {
 
 	const uploadFile = async e => {
 		let myFile = file;
-		console.log(myFile.name);
 
 		const formData = new FormData();
 		formData.append("myFile", myFile);
 
-		const response = await actions.uploadFile(formData);
+		const response = await actions.uploadStudentsFile(formData);
 
 		history.push("/home");
 	};

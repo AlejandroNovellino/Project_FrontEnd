@@ -54,8 +54,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					user: JSON.parse(user)
 				});
 			},
-			uploadFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-file", {
+			uploadCathedrasFile: async myFile => {
+				const response = await fetch("http://192.168.0.111:4000/upload-cathedras", {
+					method: "POST",
+					body: myFile
+				});
+
+				if (response.ok) {
+					return true;
+				} else {
+					return false;
+				}
+			},
+			uploadProfessorsFile: async myFile => {
+				const response = await fetch("http://192.168.0.111:4000/upload-professors", {
+					method: "POST",
+					body: myFile
+				});
+
+				if (response.ok) {
+					return true;
+				} else {
+					return false;
+				}
+			},
+			uploadStudentsFile: async myFile => {
+				const response = await fetch("http://192.168.0.111:4000/upload-students", {
 					method: "POST",
 					body: myFile
 				});
