@@ -1,0 +1,33 @@
+.postal
+{
+    border-radius: 4px;
+    width: max-content;
+    height: 110%;
+    margin-left: 10px;
+    display: inline-block;
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.imgpostal
+{
+    width: 350px;
+    height: 300px;
+}
+
+.postal:hover
+{
+    scale: 1.05;
+    transition-duration: 300ms;
+}
+
+.contenedorpostal
+{
+    text-align: center;
+    width: 100%;
+}
+
+.encabezado
+{
+    margin-left: 10px;
+}
