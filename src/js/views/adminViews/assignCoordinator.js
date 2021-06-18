@@ -14,10 +14,13 @@ import {
 } from "react-bootstrap";
 
 export const assignCoordinator = () => {
+    const { store, actions } = useContext(Context);
+    const history = useHistory();
+
 	return (
 		<Container>
 			<Row>
-				<h2 className="titulo"> asignar Coordinador </h2>
+				<h2 className="titulo"> Asignar Coordinador </h2>
 			</Row>
 			<Row>
 				<Form>
@@ -26,7 +29,6 @@ export const assignCoordinator = () => {
 						<Form.Control
 							type="email"
 							placeholder="Email@example.com"
-							onKeyPress
 						/>
 					</Form.Group>
 					<Form.Group controlId="exampleForm.ControlSelect1">
@@ -45,7 +47,7 @@ export const assignCoordinator = () => {
 						src="holder.js/100px180?text=Image cap"
 					/>
 					<Card.Body>
-						<Card.Title>Nombre del profesor</Card.Title>
+						<Card.Title></Card.Title>
 					</Card.Body>
 					<ListGroup className="list-group-flush">
 						<ListGroupItem>Carrera</ListGroupItem>

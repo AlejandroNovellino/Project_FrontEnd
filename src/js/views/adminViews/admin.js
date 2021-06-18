@@ -5,9 +5,9 @@ import "../../styles/admin.scss";
 
 export const Admin = () => {
 	return (
-		<div>
-			<h1 className="titulo"> Panel de administracion: </h1>
-		</div>
+		<Row>
+			<h2 className="titulo"> Bienvenido</h2>
+		</Row>
 	);
 };
 
