@@ -36,15 +36,20 @@ export const AppNavbar = ({ role }) => {
 			<Navbar.Brand>
 				<img src={u_metric_academy} width="40" height="40" className="d-inline-block align-top" />
 			</Navbar.Brand>
-			<Navbar.Brand href="/home">UMetricAcademy</Navbar.Brand>
+			<Navbar.Brand type="button" onClick={e => history.push("/home")}>
+				UMetricAcademy
+			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
 					{store.user && store.user.role == "admin" ? (
 						<>
 							<SplitButton variant="secondary" title={"Carreras"} className="mx-1">
-								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
-									Añadir Materias
+								<Dropdown.Item
+									eventKey="1"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addCathedrasFile")}>
+									Añadir Materias Archivo
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"Profesores"} className="mx-1">
@@ -52,10 +57,16 @@ export const AppNavbar = ({ role }) => {
 									eventKey="1"
 									className="bg-secondary text-white"
 									onClick={e => history.push("/addProfessor")}>
-									Añadir Profesores
+									Añadir Profesor
 								</Dropdown.Item>
 								<Dropdown.Item
-									eventKey="1"
+									eventKey="2"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addProfessorsFile")}>
+									Añadir Archivo
+								</Dropdown.Item>
+								<Dropdown.Item
+									eventKey="3"
 									className="bg-secondary text-white"
 									onClick={e => history.push("/assignCoordinator")}>
 									Asignar Coordinador
@@ -65,10 +76,13 @@ export const AppNavbar = ({ role }) => {
 								<Dropdown.Item
 									eventKey="1"
 									className="bg-secondary text-white"
-									onClick={e => history.push("/addStudents")}>
+									onClick={e => history.push("/addStudentsFile")}>
 									Añadir Archivo
 								</Dropdown.Item>
-								<Dropdown.Item eventKey="2" className="bg-secondary text-white">
+								<Dropdown.Item
+									eventKey="2"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addStudent")}>
 									Añadir Unico
 								</Dropdown.Item>
 							</SplitButton>

@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Context } from "../../store/appContext";
 
-import "../../../styles/adminStyles/addStudents.scss";
+import "../../../styles/adminStyles/addFromFile.scss";
 
-export const AddStudents = () => {
+export const AddCathedrasFile = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 
@@ -17,7 +17,7 @@ export const AddStudents = () => {
 		const formData = new FormData();
 		formData.append("myFile", myFile);
 
-		const response = await actions.uploadStudentsFile(formData);
+		const response = await actions.uploadCathedrasFile(formData);
 
 		history.push("/home");
 	};
@@ -26,7 +26,7 @@ export const AddStudents = () => {
 		<Container fluid className="d-flex align-items-center bg-primary p-5 h-100">
 			<Container className="fileWrapper align-items-center bg-light border border-dark rounded-lg p-4">
 				<Row className="justify-content-center h-25">
-					<h2>Anadir un archivo de estudiantes</h2>
+					<h2>Anadir un archivo de materias</h2>
 				</Row>
 				<Row className="justify-content-center h-25">
 					<p className="text-center">

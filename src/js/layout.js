@@ -13,8 +13,11 @@ import { Carreras } from "./views/carreras";
 import { Estudiantes } from "./views/estudiantes";
 import { Materias } from "./views/materias";
 import { Profesores } from "./views/profesores";
-import { AddStudents } from "./views/adminViews/addStudents";
+import { AddCathedrasFile } from "./views/adminViews/addCathedrasFile";
+import { AddProfessorsFile } from "./views/adminViews/addProfessorsFile";
+import { AddStudentsFile } from "./views/adminViews/addStudentsFile";
 import { AddProfessor } from "./views/adminViews/addProfessor";
+import { AddStudent } from "./views/adminViews/addStudent";
 
 import { AppNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -58,11 +61,20 @@ const Layout = () => {
 						<Route exact path="/home">
 							<Home />
 						</Route>
-						<Route exact path="/addStudents">
-							<AddStudents />
+						<Route exact path="/addCathedrasFile">
+							<AddCathedrasFile />
+						</Route>
+						<Route exact path="/addProfessorsFile">
+							<AddProfessorsFile />
+						</Route>
+						<Route exact path="/addStudentsFile">
+							<AddStudentsFile />
 						</Route>
 						<Route exact path="/addProfessor">
 							<AddProfessor />
+						</Route>
+						<Route exact path="/addStudent">
+							<AddStudent />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
