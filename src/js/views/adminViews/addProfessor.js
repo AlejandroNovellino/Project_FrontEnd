@@ -14,30 +14,68 @@ export const AddProfessor = () => {
 	const [age, setAge] = useState("");
 	const [nationality, setNationality] = useState("");
 	const [residence, setResidence] = useState("");
-	const [roll, setRoll] = useState(null);
+	const [role, setRole] = useState(null);
+	const [career, setCareer] = useState({});
+	const [cathedras, setCathedras] = useState([]);
 
 	useEffect(
 		() => {
 			const auxFunc = async () => {
 				await actions.getAllCountries();
+				await actions.getAllCareers();
 			};
 			auxFunc();
 		},
 		[actions.getAllCountries]
 	);
 
-	const createProfessor = e => {
-		let career = "None";
-		//actions.createProfessor(name, email, dni, phoneNumber, age, residence, career);
+	const handleCareerChange = async e => {
+		setCareer(e.target.value);
+		const career = e.target.value.toLowerCase();
+		await actions.getAllCathedrasFromCareer(career);
+	};
+
+	const handleMultipleSelect = e => {
+		let values = Array.from(e.target.selectedOptions, option => option.value);
+		setCathedras(values);
+	};
+
+	const createProfessor = async e => {
+		// // const new_professor = await actions.createProfessor(
+		// // 	name,
+		// // 	dni,
+		// // 	phoneNumber,
+		// // 	age,
+		// // 	nationality,
+		// // 	residence,
+		// // 	career,
+		// // 	cathedras
+		// // );
+		// // const new_user = await actions.createUser(email, dni, role, new_profesor.id);
+
+		await actions.createProfessorWithUser(
+			name,
+			dni,
+			phoneNumber,
+			age,
+			nationality,
+			residence,
+			career,
+			cathedras,
+			email,
+			role
+		);
+		alert("Profesor creado");
 	};
 
 	return (
 		<Container className="d-flex align-items-center flex-column h-100">
 			<Row>
-				<Col xs={12}>
+				<Col xs={12} className="my-4">
 					<h2 className="m-auto"> Añadir profesor: </h2>
 				</Col>
 			</Row>
+
 			<Row className="m-auto">
 				<Form className="container-fluid">
 					<Form.Row>
@@ -62,12 +100,12 @@ export const AddProfessor = () => {
 						</Form.Group>
 					</Form.Row>
 					<Form.Row className="d-flex justify-content-between">
-						<Form.Group>
+						<Form.Group as={Col}>
 							<Form.Label>Cedula</Form.Label>
 							<Form.Control placeholder="Cedula" value={dni} onChange={e => setDni(e.target.value)} />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group as={Col}>
 							<Form.Label>Número de Telefono </Form.Label>
 							<Form.Control
 								placeholder="Telefono"
@@ -76,20 +114,22 @@ export const AddProfessor = () => {
 							/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group as={Col}>
 							<Form.Label>Edad</Form.Label>
 							<Form.Control placeholder="Edad" value={age} onChange={e => setAge(e.target.value)} />
 						</Form.Group>
 					</Form.Row>
+
 					<Form.Row>
-						<Form.Group as={Col} controlId="formGridNacionality">
-							{/*<Form.Label>Nacionalidad</Form.Label>
-							<Form.Control />*/}
+						<Form.Group as={Col}>
 							<Form.Label>Nacionalidad</Form.Label>
 							<Form.Control
 								as="select"
-								defaultValue="Choose..."
+								defaultValue="choose"
 								onChange={e => setNationality(e.target.value)}>
+								<option hidden value="choose">
+									{"Elija una"}
+								</option>
 								{store.nationalities &&
 									store.nationalities.map((element, index) => {
 										return (
@@ -110,20 +150,60 @@ export const AddProfessor = () => {
 							/>
 						</Form.Group>
 					</Form.Row>
+
 					<Form.Row>
-						<Form.Group as={Col} controlId="formGridCarrer">
+						<Form.Group as={Col}>
 							<Form.Label>Carrera</Form.Label>
-							<Form.Control placeholder="Carrera" />
+							<Form.Control as="select" defaultValue="choose..." onChange={handleCareerChange}>
+								<option hidden value="choose">
+									{"Elija una"}
+								</option>
+								{store.careers &&
+									store.careers.map((element, index) => {
+										return (
+											<option key={index} value={index + 1}>
+												{element}
+											</option>
+										);
+									})}
+							</Form.Control>
 						</Form.Group>
 
 						<Form.Group as={Col}>
 							<Form.Label>Roll</Form.Label>
-							<Form.Control as="select" defaultValue="Choose..." onChange={e => setRoll(e.target.value)}>
+							<Form.Control as="select" defaultValue="choose" onChange={e => setRole(e.target.value)}>
+								<option hidden value="choose">
+									{"Elija una"}
+								</option>
 								<option value="1">Coordinador</option>
 								<option value="2">Profesor</option>
 							</Form.Control>
+							<small className="form-text text-muted">
+								Sera coordinador de todas las materias elegidas
+							</small>
 						</Form.Group>
+					</Form.Row>
 
+					<Form.Row>
+						<Form.Group as={Col}>
+							<Form.Label>Materias</Form.Label>
+							<Form.Control as="select" multiple onChange={handleMultipleSelect}>
+								{store.cathedras &&
+									store.cathedras.map((element, index) => {
+										return (
+											<option key={index} value={element.code}>
+												{element.name}
+											</option>
+										);
+									})}
+							</Form.Control>
+							<small className="form-text text-muted">
+								Mantener presionado Ctrl para selecionar varias materias
+							</small>
+						</Form.Group>
+					</Form.Row>
+
+					<Form.Row>
 						<Button variant="success" className="btn-block" onClick={createProfessor}>
 							Añadir
 						</Button>

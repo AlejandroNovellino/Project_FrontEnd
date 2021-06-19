@@ -3,18 +3,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: "",
 			user: {},
-			nationalities: []
+			nationalities: [],
+			careers: [],
+			cathedras: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
+			// Use getActions to call a function within a function
 			logIn: async (email, password) => {
 				let response = await fetch("http://192.168.0.111:4000/log-in", {
 					method: "POST",
@@ -38,7 +32,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				return false;
 			},
-
 			logOut: _ => {
 				setStore({
 					token: "",
@@ -47,7 +40,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token");
 				localStorage.removeItem("user");
 			},
-
 			setToken: (token, user) => {
 				setStore({
 					token,
@@ -102,23 +94,118 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			createProfessor: async (fullName, email, ci, phoneNumber, age, residence, career) => {
-				let response = await fetch("http://192.168.0.111:4000/professor", {
-					method: "POST",
-					body: JSON.stringify({
-						fullName,
-						email,
-						ci,
-						phoneNumber,
-						age,
-						residence,
-						career
-					}),
-					headers: {
-						"Content-Type": "application/json"
+			getAllCareers: async () => {
+				try {
+					let response = await fetch("http://192.168.0.111:4000/careers");
+
+					if (response.ok) {
+						const data = await response.json();
+						let careers = data.map(element => {
+							return element[0].toUpperCase() + element.slice(1);
+						});
+						setStore({
+							careers: careers
+						});
+					} else {
+						return null;
 					}
-				});
-				return response.ok;
+				} catch {
+					return null;
+				}
+			},
+			getAllCathedrasFromCareer: async career => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/cathedras/" + career);
+
+					if (response.ok) {
+						const data = await response.json();
+						setStore({
+							cathedras: data
+						});
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			createUser: async (email, password, role, professor_id) => {
+				try {
+					let response = await fetch("http://192.168.0.111:4000/sign-up", {
+						method: "POST",
+						body: {
+							email: email,
+							password: password,
+							role: role,
+							professor_id: professor_id
+						},
+						header: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (response.ok) {
+						const new_professor = response.json();
+						return new_professor;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			createProfessor: async (fullName, ci, phoneNumber, age, nationality, residence, career, cathedras) => {
+				try {
+					let response = await fetch("http://192.168.0.111:4000/professor", {
+						method: "POST",
+						body: JSON.stringify({
+							fullName,
+							ci,
+							phoneNumber,
+							age,
+							nationality,
+							residence,
+							career,
+							cathedras
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			createProfessorWithUser: async (...params) => {
+				try {
+					const response = await fetch("", {
+						method: "POST",
+						body: JSON.stringify({
+							fullName: params[0],
+							ci: params[1],
+							phoneNumber: params[2],
+							age: params[3],
+							nationality: params[4],
+							residence: params[5],
+							career: params[6],
+							cathedras: params[7],
+							email: params[8],
+							role: params[9]
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+				} catch {
+					return null;
+				}
 			}
 		}
 	};

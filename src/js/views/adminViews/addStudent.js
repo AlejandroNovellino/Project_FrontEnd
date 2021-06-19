@@ -114,8 +114,9 @@ export const AddStudent = () => {
 							<Form.Label>Carrera</Form.Label>
 							<Form.Control placeholder="Carrera" />
 						</Form.Group>
-
-						<Button variant="success" className="btn-block" onClick={createStudent}>
+					</Form.Row>
+					<Form.Row>
+						<Button variant="success" className="btn-block" onClick={createProfessor}>
 							Añadir
 						</Button>
 					</Form.Row>

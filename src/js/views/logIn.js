@@ -27,7 +27,7 @@ export const LogIn = () => {
 				<Row className="justify-content-center h-100 m-0">
 					<Col lg={10} className="d-flex align-items-center">
 						<Form.Control
-							type="input"
+							type="email"
 							placeholder="Email"
 							className="d-block"
 							value={email}
