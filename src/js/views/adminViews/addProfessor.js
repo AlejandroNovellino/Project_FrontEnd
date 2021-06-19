@@ -175,8 +175,8 @@ export const AddProfessor = () => {
 								<option hidden value="choose">
 									{"Elija una"}
 								</option>
-								<option value="1">Coordinador</option>
-								<option value="2">Profesor</option>
+								<option value="2">Coordinador</option>
+								<option value="3">Profesor</option>
 							</Form.Control>
 							<small className="form-text text-muted">
 								Sera coordinador de todas las materias elegidas

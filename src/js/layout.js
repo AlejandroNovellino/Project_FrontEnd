@@ -2,13 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { LogIn } from "./views/logIn";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
-import { Home } from "./views/home";
+import { LogIn } from "./views/home/logIn";
+import { Home } from "./views/home/home";
 
 import injectContext from "./store/appContext";
-import { Admin } from "./views/admin";
+import { Admin } from "./views/adminViews/admin";
 import { Carreras } from "./views/carreras";
 import { Estudiantes } from "./views/estudiantes";
 import { Materias } from "./views/materias";
@@ -51,12 +49,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/carreras">
 							<Carreras />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
 						</Route>
 						<Route exact path="/home">
 							<Home />

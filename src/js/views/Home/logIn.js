@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
-import "../../styles/signIn.scss";
+import "../../../styles/logIn.scss";
 
 export const LogIn = () => {
 	const { store, actions } = useContext(Context);

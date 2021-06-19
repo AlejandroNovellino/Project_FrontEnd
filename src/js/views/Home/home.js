@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Form, Button, Nav } from "react-bootstrap";
 
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
-import "../../styles/home.scss";
+import "../../../styles/home.scss";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
