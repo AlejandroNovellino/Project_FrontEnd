@@ -20,20 +20,20 @@ export const Home = () => {
 					<Nav variant="pills" defaultActiveKey="" className="flex-column">
 						<Nav.Item>
 							{store.user.role == "coordinator" ? (
-								<Nav.Link eventKey="graphs" className="text-center">
-									Planes
-								</Nav.Link>
+								<Button.Link eventKey="graphs" className="text-center" variant="secondary">
+									Planes de evaluación
+								</Button.Link>
 							) : null}
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link eventKey="graphs" className="text-center">
+							<Button.Link eventKey="graphs" className="text-center" variant="secondary">
 								Graficos
-							</Nav.Link>
+							</Button.Link>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link eventKey="reports" className="text-center">
+							<Button.Link eventKey="reports" className="text-center" variant="secondary">
 								Reportes
-							</Nav.Link>
+							</Button.Link>
 						</Nav.Item>
 					</Nav>
 				</Col>
