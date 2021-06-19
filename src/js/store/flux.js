@@ -154,38 +154,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			createProfessor: async (fullName, ci, phoneNumber, age, nationality, residence, career, cathedras) => {
+			createProfessor: async (...params) => {
 				try {
-					let response = await fetch("http://192.168.0.111:4000/professor", {
-						method: "POST",
-						body: JSON.stringify({
-							fullName,
-							ci,
-							phoneNumber,
-							age,
-							nationality,
-							residence,
-							career,
-							cathedras
-						}),
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-
-					if (response.ok) {
-						const data = await response.json();
-						return data;
-					} else {
-						return null;
-					}
-				} catch {
-					return null;
-				}
-			},
-			createProfessorWithUser: async (...params) => {
-				try {
-					const response = await fetch("", {
+					const response = await fetch("http://192.168.0.111:4000/professor", {
 						method: "POST",
 						body: JSON.stringify({
 							fullName: params[0],

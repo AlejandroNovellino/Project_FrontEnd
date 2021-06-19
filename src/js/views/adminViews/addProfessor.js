@@ -53,17 +53,17 @@ export const AddProfessor = () => {
 		// // );
 		// // const new_user = await actions.createUser(email, dni, role, new_profesor.id);
 
-		await actions.createProfessorWithUser(
+		await actions.createProfessor(
 			name,
 			dni,
 			phoneNumber,
-			age,
+			parseInt(age),
 			nationality,
 			residence,
-			career,
+			parseInt(career),
 			cathedras,
 			email,
-			role
+			parseInt(role)
 		);
 		alert("Profesor creado");
 	};
