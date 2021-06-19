@@ -41,18 +41,6 @@ export const AddProfessor = () => {
 	};
 
 	const createProfessor = async e => {
-		// // const new_professor = await actions.createProfessor(
-		// // 	name,
-		// // 	dni,
-		// // 	phoneNumber,
-		// // 	age,
-		// // 	nationality,
-		// // 	residence,
-		// // 	career,
-		// // 	cathedras
-		// // );
-		// // const new_user = await actions.createUser(email, dni, role, new_profesor.id);
-
 		await actions.createProfessor(
 			name,
 			dni,
