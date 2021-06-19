@@ -58,6 +58,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
+			uploadCoursesFile: async myFile => {
+				const response = await fetch("http://192.168.0.111:4000/upload-courses", {
+					method: "POST",
+					body: myFile
+				});
+
+				if (response.ok) {
+					return true;
+				} else {
+					return false;
+				}
+			},
 			uploadProfessorsFile: async myFile => {
 				const response = await fetch("http://192.168.0.111:4000/upload-professors", {
 					method: "POST",
