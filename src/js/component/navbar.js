@@ -97,7 +97,10 @@ export const AppNavbar = ({ role }) => {
 					{store.user && store.user.role == "coordinator" ? (
 						<>
 							<SplitButton variant="secondary" title={"MisMaterias"} className="mx-1">
-								<Dropdown.Item eventKey="1" className="bg-secondary text-white">
+								<Dropdown.Item
+									eventKey="1"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addEvaPlan")}>
 									Añadir plan de evaluación
 								</Dropdown.Item>
 							</SplitButton>
