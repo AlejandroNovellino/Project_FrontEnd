@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Form, Button, Nav } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 import { Context } from "../../store/appContext";
 
@@ -14,28 +15,23 @@ export const Home = () => {
 		}
 	});
 
+	const history = useHistory();
+
 	return (
 		<Container fluid className="bg-primary h-100">
 			<Row className="h-100">
 				<Col md={3} className="bg-white h-100">
 					<Nav variant="pills" defaultActiveKey="" className="flex-column">
-						{/*<Nav.Item>
-							{store.user.role == "coordinator" ? (
-								<Button.Link eventKey="graphs" className="text-center" variant="secondary">
-									Planes de evaluación
-								</Button.Link>
-							) : null}
-						</Nav.Item>
 						<Nav.Item>
-							<Button.Link eventKey="graphs" className="text-center" variant="secondary">
+							<Button eventKey="graphs" className="text-center btn-block my-1" variant="secondary">
 								Graficos
-							</Button.Link>
+							</Button>
 						</Nav.Item>
 						<Nav.Item>
-							<Button.Link eventKey="reports" className="text-center" variant="secondary">
+							<Button eventKey="reports" className="text-center btn-block my-1" variant="secondary">
 								Reportes
-							</Button.Link>
-							</Nav.Item>*/}
+							</Button>
+						</Nav.Item>
 					</Nav>
 				</Col>
 				<Col md={9}>

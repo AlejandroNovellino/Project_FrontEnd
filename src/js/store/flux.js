@@ -141,6 +141,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
+			getActivesCoursesFromCareer: async career => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/courses/" + career);
+
+					if (response.ok) {
+						const data = await response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
 			createUser: async (email, password, role, professor_id) => {
 				try {
 					let response = await fetch("http://192.168.0.111:4000/sign-up", {
@@ -186,6 +200,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json"
 						}
 					});
+				} catch {
+					return null;
+				}
+			},
+			createStudent: async (...params) => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/student", {
+						method: "POST",
+						body: JSON.stringify({
+							fullName: params[0],
+							ci: params[1],
+							phoneNumber: params[2],
+							age: params[3],
+							nationality: params[4],
+							residence: params[5],
+							career: params[6]
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (response.ok) {
+						const data = response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			createInscription: async (student_id, course_id) => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/inscription", {
+						method: "POST",
+						body: JSON.stringify({
+							student_id: student_id,
+							course_id: course_id
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (response.ok) {
+						const data = response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			getCourseByCode: async code => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/courses/byCode/" + code);
+					if (response.ok) {
+						const data = response.json();
+						return data;
+					} else {
+						return null;
+					}
 				} catch {
 					return null;
 				}
