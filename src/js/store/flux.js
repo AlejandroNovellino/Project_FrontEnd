@@ -205,7 +205,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			createStudent: async (...params) => {
-				console.log(params);
 				try {
 					const response = await fetch("http://192.168.0.111:4000/student", {
 						method: "POST",

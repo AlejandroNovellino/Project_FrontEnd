@@ -44,19 +44,18 @@ export const AppNavbar = ({ role }) => {
 				<Nav className="mr-auto">
 					{store.user && store.user.role == "admin" ? (
 						<>
-							<SplitButton variant="secondary" title={"Carreras"} className="mx-1" />
-							<SplitButton variant="secondary" title={"Materias"} className="mx-1">
+							<SplitButton variant="secondary" title={"Carreras"} className="mx-1">
 								<Dropdown.Item
 									eventKey="1"
 									className="bg-secondary text-white"
 									onClick={e => history.push("/addCathedrasFile")}>
-									Añadir Archivo
+									Añadir Archivo Materias
 								</Dropdown.Item>
 								<Dropdown.Item
 									eventKey="2"
 									className="bg-secondary text-white"
 									onClick={e => history.push("/addCoursesFile")}>
-									Añadir Cursos Archivo
+									Añadir Archivo Cursos
 								</Dropdown.Item>
 							</SplitButton>
 							<SplitButton variant="secondary" title={"Profesores"} className="mx-1">
@@ -81,16 +80,16 @@ export const AppNavbar = ({ role }) => {
 							</SplitButton>
 							<SplitButton variant="secondary" title={"Estudiantes"} className="mx-1">
 								<Dropdown.Item
+									eventKey="2"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addStudent")}>
+									Añadir Estudiante
+								</Dropdown.Item>
+								<Dropdown.Item
 									eventKey="1"
 									className="bg-secondary text-white"
 									onClick={e => history.push("/addStudentsFile")}>
 									Añadir Archivo
-								</Dropdown.Item>
-								<Dropdown.Item
-									eventKey="2"
-									className="bg-secondary text-white"
-									onClick={e => history.push("/addStudent")}>
-									Añadir Unico
 								</Dropdown.Item>
 							</SplitButton>
 						</>
