@@ -15,7 +15,8 @@ export const AddStudent = () => {
 	const [nationality, setNationality] = useState("");
 	const [residence, setResidence] = useState("");
 	const [career, setCareer] = useState({});
-	const [cathedras, setCathedras] = useState([]);
+	const [activeCourses, setActiveCourses] = useState([]);
+	const [coursesCodes, setCoursesCodes] = useState([]);
 
 	useEffect(
 		() => {
@@ -30,16 +31,32 @@ export const AddStudent = () => {
 
 	const handleCareerChange = async e => {
 		setCareer(e.target.value);
-		const career = e.target.value.toLowerCase();
-		await actions.getAllCathedrasFromCareer(career);
+		const career = e.target.value;
+		const aux = await actions.getActivesCoursesFromCareer(career);
+		setActiveCourses(aux);
 	};
 
 	const handleMultipleSelect = e => {
 		let values = Array.from(e.target.selectedOptions, option => option.value);
-		setCathedras(values);
+		setCoursesCodes(values);
 	};
 
-	const createStudent = async e => {};
+	const createStudent = async _ => {
+		const newStudent = await actions.createStudent(
+			name,
+			dni,
+			phoneNumber,
+			parseInt(age),
+			nationality,
+			residence,
+			parseInt(career)
+		);
+
+		for (let courseCode of coursesCodes) {
+			const course = await actions.getCourseByCode(courseCode);
+			const new_inscription = await actions.createInscription(newStudent.id, course.id);
+		}
+	};
 
 	return (
 		<Container className="d-flex align-items-center flex-column h-100">
@@ -141,29 +158,26 @@ export const AddStudent = () => {
 									})}
 							</Form.Control>
 						</Form.Group>
-					</Form.Row>
-
-					<Form.Row>
 						<Form.Group as={Col}>
-							<Form.Label>Materias</Form.Label>
+							<Form.Label>Cursos activos</Form.Label>
 							<Form.Control as="select" multiple onChange={handleMultipleSelect}>
-								{store.cathedras &&
-									store.cathedras.map((element, index) => {
+								{activeCourses &&
+									activeCourses.map((element, index) => {
 										return (
 											<option key={index} value={element.code}>
-												{element.name}
+												{element.title}
 											</option>
 										);
 									})}
 							</Form.Control>
 							<small className="form-text text-muted">
-								Mantener presionado Ctrl para selecionar varias materias
+								Mantener presionado Ctrl para selecionar varios cursos
 							</small>
 						</Form.Group>
 					</Form.Row>
 
 					<Form.Row>
-						<Button variant="success" className="btn-block">
+						<Button variant="success" className="btn-block" onClick={createStudent}>
 							Añadir
 						</Button>
 					</Form.Row>
