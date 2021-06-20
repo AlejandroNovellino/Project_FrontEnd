@@ -155,6 +155,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
+			getCourseByCode: async code => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/courses/byCode/" + code);
+					if (response.ok) {
+						const data = response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
 			createUser: async (email, password, role, professor_id) => {
 				try {
 					let response = await fetch("http://192.168.0.111:4000/sign-up", {
@@ -253,11 +266,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			getCourseByCode: async code => {
+			createEvaluation: async (course_id, name, percentage) => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/courses/byCode/" + code);
+					const response = await fetch("http://192.168.0.111:4000/evaluation", {
+						method: "POST",
+						body: JSON.stringify({
+							course_id,
+							name,
+							percentage
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
 					if (response.ok) {
-						const data = response.json();
+						const data = await response.json();
 						return data;
 					} else {
 						return null;

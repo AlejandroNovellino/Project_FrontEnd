@@ -23,12 +23,12 @@ export const Home = () => {
 				<Col md={3} className="bg-white h-100">
 					<Nav variant="pills" defaultActiveKey="" className="flex-column">
 						<Nav.Item>
-							<Button eventKey="graphs" className="text-center btn-block my-1" variant="secondary">
+							<Button className="text-center btn-block my-1" variant="secondary">
 								Graficos
 							</Button>
 						</Nav.Item>
 						<Nav.Item>
-							<Button eventKey="reports" className="text-center btn-block my-1" variant="secondary">
+							<Button className="text-center btn-block my-1" variant="secondary">
 								Reportes
 							</Button>
 						</Nav.Item>
