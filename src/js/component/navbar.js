@@ -91,6 +91,12 @@ export const AppNavbar = ({ role }) => {
 									onClick={e => history.push("/addStudentsFile")}>
 									Añadir Archivo
 								</Dropdown.Item>
+								<Dropdown.Item
+									eventKey="1"
+									className="bg-secondary text-white"
+									onClick={e => history.push("/addGradesFile")}>
+									Añadir Archivo Notas
+								</Dropdown.Item>
 							</SplitButton>
 						</>
 					) : null}

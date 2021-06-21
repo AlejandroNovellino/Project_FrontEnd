@@ -28,9 +28,7 @@ export const Home = () => {
 						</Nav.Item>
 					</Nav>
 				</Col>
-				<Col xs={9}>
-					<Container>{store.user.role == "admin" ? <Careers /> : null}</Container>
-				</Col>
+				<Col xs={9}>{store.user.role == "admin" ? <Careers /> : null}</Col>
 			</Row>
 		</Container>
 	);
