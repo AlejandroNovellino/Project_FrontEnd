@@ -22,7 +22,10 @@ export const Home = () => {
 							</Button>
 						</Nav.Item>
 						<Nav.Item>
-							<Button className="text-center btn-block my-1" variant="secondary">
+							<Button
+								className="text-center btn-block my-1"
+								variant="secondary"
+								onClick={_ => history.push("/reports")}>
 								Reportes
 							</Button>
 						</Nav.Item>

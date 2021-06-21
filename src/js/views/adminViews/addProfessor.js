@@ -57,7 +57,7 @@ export const AddProfessor = () => {
 	};
 
 	return (
-		<Container fluid className="bg-primary  p-5">
+		<Container fluid className="bg-primary p-5">
 			<Jumbotron className="m-0 pt-2 pb-4">
 				<Row>
 					<Col xs={12} className="my-4">
