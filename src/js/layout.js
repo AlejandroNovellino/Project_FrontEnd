@@ -18,6 +18,7 @@ import { AddStudentsFile } from "./views/adminViews/addStudentsFile";
 import { AddProfessor } from "./views/adminViews/addProfessor";
 import { AddStudent } from "./views/adminViews/addStudent";
 import { AddEvaPlan } from "./views/coordViews/addEvaPlan";
+import { AssignCoordinator } from "./views/adminViews/assignCoordinator";
 
 import { AppNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -75,6 +76,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/addEvaPlan">
 							<AddEvaPlan />
+						</Route>
+						<Route exact path="/assignCoordinator">
+							<AssignCoordinator />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
