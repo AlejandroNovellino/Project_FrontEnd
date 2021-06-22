@@ -1,7 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Pie } from "react-chartjs-2"
 
 export const demographicGraphics = () => {
+	const data={
+		// labels:['']
+		// dataset:[{
+		// 	backgroundcolor:{}
+		// }]
+	}
+	const options={
+		responsive:true
+	}
 	return (
 		<Container fluid className="d-flex align-items-center bg-primary p-5 h-100">
 			<Container className="fileWrapper align-items-center bg-light border border-dark rounded-lg p-4">
@@ -10,12 +20,7 @@ export const demographicGraphics = () => {
 				</Row>
 				<Row className="justify-content-center h-25">
 					<div className="custom-file m-auto">
-						<input
-							type="file"
-							className="custom-file-input"
-							name="myFile"
-						/>
-						<label className="custom-file-label m-auto w-75">{}</label>
+						<Pie data={data} options={options}></Pie>
 					</div>
 				</Row>
 				<Row className="h-25">

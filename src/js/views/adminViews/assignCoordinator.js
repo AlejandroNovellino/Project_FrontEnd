@@ -1,7 +1,7 @@
 //import react into the bundle
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Card, ListGroup, ListGroupItem, Jumbotron, Table } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, option, Card, ListGroup, ListGroupItem, Jumbotron } from "react-bootstrap";
 import { Context } from "../../store/appContext";
 
 export const AssignCoordinator = () => {
@@ -13,6 +13,9 @@ export const AssignCoordinator = () => {
 			<Jumbotron className="m-0 pt-2 pb-4">
 				<Row>
 					<h2 className="m-auto"> Asignar Coordinador </h2>
+				</Row>
+				<Row>
+					<input Model="serch" className="form-control" placeholder="escriba el nombre"></input>
 				</Row>
 				<Row className="m-auto">
 					<Table striped bordered hover>
@@ -26,26 +29,14 @@ export const AssignCoordinator = () => {
 						</thead>
 						<tbody>
 							<tr>
-								<td>{professor.id}</td>
-								<td>{professor.full_name}</td>
-								<td>{professor.ci}</td>
-								<td>{professor.courses}</td>
-								<Button>Editar</Button>
+								{/* <td>{{professor.id}}</td>
+								<td>{{professor.full_name}}</td>
+								<td>{{professor.ci}}</td>
+								<td>{{professor.courses}}</td>
+								<Button>Rol</Button> */}
 							</tr>
 						</tbody>
 					</Table>
-				</Row>
-				<Row>
-					<Card style={{ width: "18rem" }}>
-						<Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-						<Card.Body>
-							<Card.Title />
-						</Card.Body>
-						<ListGroup className="list-group-flush">
-							<ListGroupItem>Carrera</ListGroupItem>
-							<ListGroupItem>materias</ListGroupItem>
-						</ListGroup>
-					</Card>
 				</Row>
 			</Jumbotron>
 		</Container>
