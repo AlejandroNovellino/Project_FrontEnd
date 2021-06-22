@@ -86,7 +86,11 @@ export const AppNavbar = ({ role }) => {
 									Asignar Coordinador
 								</Dropdown.Item>
 							</SplitButton>
-							<SplitButton variant="secondary" title={"Estudiantes"} className="mx-1">
+							<SplitButton
+								variant="secondary"
+								title={"Estudiantes"}
+								className="mx-1"
+								onClick={e => history.push("/students")}>
 								<Dropdown.Item
 									eventKey="2"
 									className="bg-secondary text-white"

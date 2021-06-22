@@ -2,23 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Col, Table, Jumbotron } from "react-bootstrap";
 import { Context } from "../../store/appContext";
 
-export const Careers = () => {
+export const Students = () => {
 	const { store, actions } = useContext(Context);
-	const [careersInfo, setCareersInfo] = useState();
+	const [studentsInfo, setStudentsInfo] = useState();
 
 	useEffect(_ => {
-		const getCareersInfo = async _ => {
-			const aux = await actions.getAllElementInfo("careers");
-			setCareersInfo(aux);
+		const getStudentsInfo = async _ => {
+			const aux = await actions.getAllElementInfo("students");
+			setStudentsInfo(aux);
 		};
-		getCareersInfo();
+		getStudentsInfo();
 	}, []);
 
 	return (
 		<Container fluid className="bg-primary p-5 h-100">
 			<Jumbotron className="py-4">
 				<Row className="justify-content-center">
-					<p className="display-4 mt-2 mb-3">Informacion de las Carreras</p>
+					<p className="display-4 mt-2 mb-3">Informacion de los Estudiantes</p>
 				</Row>
 				<Row className="h-75">
 					<Col xs={12} className="h-100">
@@ -26,22 +26,28 @@ export const Careers = () => {
 							<thead>
 								<tr>
 									<th>#</th>
+									<th>Nombre</th>
+									<th>Cedula</th>
+									<th>Edad</th>
+									<th>Telefono</th>
+									<th>Nacionalidad</th>
+									<th>Residencia</th>
 									<th>Carrera</th>
-									<th>Materias</th>
-									<th>Profesores</th>
-									<th>Estudiantes</th>
 								</tr>
 							</thead>
 							<tbody>
-								{careersInfo &&
-									careersInfo.map((element, index) => {
+								{studentsInfo &&
+									studentsInfo.map((element, index) => {
 										return (
 											<tr key={index}>
 												<td>{index + 1}</td>
-												<td>{element.name}</td>
-												<td>{element.cathedras.length}</td>
-												<td>{element.professors.length}</td>
-												<td>{element.students.length}</td>
+												<td>{element.fullname}</td>
+												<td>{element.ci}</td>
+												<td>{element.age}</td>
+												<td>{element.phone_number}</td>
+												<td>{element.nationality}</td>
+												<td>{element.residence}</td>
+												<td>{element.career}</td>
 											</tr>
 										);
 									})}

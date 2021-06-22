@@ -10,7 +10,7 @@ import { Admin } from "./views/adminViews/admin";
 import { Careers } from "./views/adminViews/careers";
 import { Cathedras } from "./views/coordViews/cathedras";
 import { Professors } from "./views/adminViews/professors";
-import { Estudiantes } from "./views/estudiantes";
+import { Students } from "./views/adminViews/students";
 import { AddCathedrasFile } from "./views/adminViews/addCathedrasFile";
 import { AddCoursesFile } from "./views/adminViews/addCoursesFile";
 import { AddGradesFile } from "./views/adminViews/addGradesFile";
@@ -52,8 +52,8 @@ const Layout = () => {
 						<Route exact path="/materias">
 							<Cathedras />
 						</Route>
-						<Route exact path="/estudiantes">
-							<Estudiantes />
+						<Route exact path="/students">
+							<Students />
 						</Route>
 						<Route exact path="/home">
 							<Home />

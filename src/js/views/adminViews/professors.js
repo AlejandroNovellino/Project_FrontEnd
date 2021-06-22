@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Table, Jumbotron } from "react-bootstrap";
 import { Context } from "../../store/appContext";
 
@@ -9,7 +8,7 @@ export const Professors = () => {
 
 	useEffect(_ => {
 		const getProfessorsInfo = async _ => {
-			const aux = await actions.getAllProfessorsInfo();
+			const aux = await actions.getAllElementInfo("professors");
 			setProfessorsInfo(aux);
 		};
 		getProfessorsInfo();
