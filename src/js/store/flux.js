@@ -316,53 +316,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			// getProfessorData: async() =>{
-				//try{
-				// 	const response = await fetch("http://192.168.0.111:4000/professor", {
-				// 		method: "POST",
-				// 		body: JSON.stringify({
-				// 			course_id,
-				// 			name,
-				// 			percentage
-				// 		}),
-				// 		headers: {
-				// 			"Content-Type": "application/json"
-				// 		}
-				// 	});
-
-				// 	if (response.ok) {
-				// 		const data = await response.json();
-				// 		return data;
-				// 	} else {
-				// 		return null;
-				// 	}
-				// } catch {
-				// 	return null;
-			// },
-			getDemograficInfo: async () =>{
-				try{
-					const response = await fetch("http://192.168.0.111:4000/students/info", {
-						method: "GET",
-						body: JSON.stringify({
-							course_id,
-							name,
-							percentage
-						}),
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-
-					if (response.ok) {
-						const data = await response.json();
-						return data;
-					} else {
-						return null;
-					}
-				} catch {
-					return null;
-				}
-			},
 		}
 	};
 };

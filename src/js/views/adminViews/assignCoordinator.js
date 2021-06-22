@@ -15,7 +15,7 @@ export const AssignCoordinator = () => {
 					<h2 className="m-auto"> Asignar Coordinador </h2>
 				</Row>
 				<Row>
-					<input Model="search" className="form-control" placeholder="escriba el nombre"></input>
+					<input wire:Model="search" className="form-control" placeholder="escriba el nombre"></input>
 				</Row>
 				<Row className="m-auto">
 					<Table striped bordered hover>
