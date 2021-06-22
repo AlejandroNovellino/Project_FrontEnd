@@ -49,7 +49,7 @@ const Layout = () => {
 						<Route exact path="/professors">
 							<Professors />
 						</Route>
-						<Route exact path="/materias">
+						<Route exact path="/cathedras">
 							<Cathedras />
 						</Route>
 						<Route exact path="/students">

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Form, Button, Nav } from "react-bootstrap";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import { Context } from "../../store/appContext";
+
+import { LandingPage } from "./landingPage";
 
 import "../../../styles/home.scss";
 
@@ -31,7 +32,9 @@ export const Home = () => {
 						</Nav.Item>
 					</Nav>
 				</Col>
-				<Col xs={9}>{store.user.role == "admin" ? <></> : null}</Col>
+				<Col xs={9}>
+					<LandingPage />
+				</Col>
 			</Row>
 		</Container>
 	);
