@@ -38,17 +38,17 @@ export const Reports = () => {
 					<Row>
 						<Col xs={4}>
 							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todas las carreras
+								Informacion de mis materias
 							</Button>
 						</Col>
 						<Col xs={4}>
 							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todas las materias
+								Informacion de mis profesores
 							</Button>
 						</Col>
 						<Col xs={4}>
 							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todos los estudiantes
+								Informacion de mis estudiantes
 							</Button>
 						</Col>
 					</Row>

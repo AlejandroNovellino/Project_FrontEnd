@@ -49,7 +49,8 @@ export const AddEvaPlan = () => {
 					</Col>
 					<Col xs={6}>
 						<DropdownButton variant="secondary" drop="right" title="Dropdown button" className="m-auto">
-							{store.user.professor.courses &&
+							{store.user.professor &&
+								store.user.professor.courses &&
 								store.user.professor.courses.map((element, index) => {
 									return (
 										<Dropdown.Item
