@@ -15,19 +15,25 @@ export const AssignCoordinator = () => {
 					<h2 className="m-auto"> Asignar Coordinador </h2>
 				</Row>
 				<Row className="m-auto">
-					<Form className="container-fluid">
-						<Form.Group controlId="exampleForm.ControlInput1">
-							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" placeholder="Email@example.com" />
-						</Form.Group>
-						<Form.Group controlId="exampleForm.ControlSelect1">
-							<Form.Label>Asignar Roll</Form.Label>
-							<Form.Control as="select">
-								<option>Coordinador</option>
-								<option>Profesor</option>
-							</Form.Control>
-						</Form.Group>
-					</Form>
+					<Table striped bordered hover>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Nombre</th>
+								<th>Cedula</th>
+								<th>Curso</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{professor.id}}</td>
+								<td>{{professor.full_name}}</td>
+								<td>{{professor.ci}}</td>
+								<td>{{professor.courses}}</td>
+								<Button>Editar</Button>
+							</tr>
+						</tbody>
+					</Table>
 				</Row>
 				<Row>
 					<Card style={{ width: "18rem" }}>

@@ -10,7 +10,7 @@ export const teacherReports = () => {
 				</Row>
 				<Row className="justify-content-center h-25">
 					<p className="text-center">
-						
+						El archivo se va a descargar en formato "" 
 					</p>
 				</Row>
 				<Row className="justify-content-center h-25">
@@ -19,9 +19,8 @@ export const teacherReports = () => {
 							type="file"
 							className="custom-file-input"
 							name="myFile"
-							onChange={e => setFile(e.target.files[0])}
 						/>
-						<label className="custom-file-label m-auto w-75"></label>
+						<label className="custom-file-label m-auto w-75">{}</label>
 					</div>
 				</Row>
 				<Row className="h-25">
