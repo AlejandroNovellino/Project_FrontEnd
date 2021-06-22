@@ -18,17 +18,22 @@ export const Reports = () => {
 
 				{store.user.role == "admin" ? (
 					<Row>
-						<Col xs={4}>
+						<Col xs={3}>
 							<Button className="text-center btn-block my-1" variant="secondary">
 								Informacion de todas las carreras
 							</Button>
 						</Col>
-						<Col xs={4}>
+						<Col xs={3}>
 							<Button className="text-center btn-block my-1" variant="secondary">
 								Informacion de todas las materias
 							</Button>
 						</Col>
-						<Col xs={4}>
+						<Col xs={3}>
+							<Button className="text-center btn-block my-1" variant="secondary">
+								Informacion de todas los profesores
+							</Button>
+						</Col>
+						<Col xs={3}>
 							<Button className="text-center btn-block my-1" variant="secondary">
 								Informacion de todos los estudiantes
 							</Button>

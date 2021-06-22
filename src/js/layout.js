@@ -7,9 +7,10 @@ import { Home } from "./views/home/home";
 
 import injectContext from "./store/appContext";
 import { Admin } from "./views/adminViews/admin";
-import { Estudiantes } from "./views/estudiantes";
+import { Careers } from "./views/adminViews/careers";
 import { Cathedras } from "./views/coordViews/cathedras";
-import { Profesores } from "./views/profesores";
+import { Professors } from "./views/adminViews/professors";
+import { Estudiantes } from "./views/estudiantes";
 import { AddCathedrasFile } from "./views/adminViews/addCathedrasFile";
 import { AddCoursesFile } from "./views/adminViews/addCoursesFile";
 import { AddGradesFile } from "./views/adminViews/addGradesFile";
@@ -42,8 +43,11 @@ const Layout = () => {
 						<Route exact path="/admin">
 							<Admin />
 						</Route>
-						<Route exact path="/profesores">
-							<Profesores />
+						<Route exact path="/careers">
+							<Careers />
+						</Route>
+						<Route exact path="/professors">
+							<Professors />
 						</Route>
 						<Route exact path="/materias">
 							<Cathedras />

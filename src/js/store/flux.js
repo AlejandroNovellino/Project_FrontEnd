@@ -137,6 +137,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
+			getAllCarriersInfo: async _ => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/careers/info");
+
+					if (response.ok) {
+						const data = await response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
+			getAllProfessorsInfo: async _ => {
+				try {
+					const response = await fetch("http://192.168.0.111:4000/professors/info");
+
+					if (response.ok) {
+						const data = await response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
 			getAllCathedrasFromCareer: async career => {
 				try {
 					const response = await fetch("http://192.168.0.111:4000/cathedras/" + career);

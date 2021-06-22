@@ -44,7 +44,11 @@ export const AppNavbar = ({ role }) => {
 				<Nav className="mr-auto">
 					{store.user && store.user.role == "admin" ? (
 						<>
-							<SplitButton variant="secondary" title={"Carreras"} className="mx-1">
+							<SplitButton
+								variant="secondary"
+								title={"Carreras"}
+								className="mx-1"
+								onClick={e => history.push("careers")}>
 								<Dropdown.Item
 									eventKey="1"
 									className="bg-secondary text-white"
@@ -58,7 +62,11 @@ export const AppNavbar = ({ role }) => {
 									Añadir Archivo Cursos
 								</Dropdown.Item>
 							</SplitButton>
-							<SplitButton variant="secondary" title={"Profesores"} className="mx-1">
+							<SplitButton
+								variant="secondary"
+								title={"Profesores"}
+								className="mx-1"
+								onClick={e => history.push("/professors")}>
 								<Dropdown.Item
 									eventKey="1"
 									className="bg-secondary text-white"
