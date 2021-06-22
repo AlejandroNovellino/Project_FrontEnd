@@ -273,7 +273,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createInscription: async (student_id, course_id) => {
 				try {
 					const response = await fetch("http://192.168.0.111:4000/inscription", {
-						method: "POST",
+						method: "GET",
 						body: JSON.stringify({
 							student_id: student_id,
 							course_id: course_id
@@ -339,30 +339,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// } catch {
 				// 	return null;
 			// },
-			// getDemograficInfo: async () =>{
-				//try{
-				// 	const response = await fetch("http://192.168.0.111:4000/", {
-				// 		method: "POST",
-				// 		body: JSON.stringify({
-				// 			course_id,
-				// 			name,
-				// 			percentage
-				// 		}),
-				// 		headers: {
-				// 			"Content-Type": "application/json"
-				// 		}
-				// 	});
+			getDemograficInfo: async () =>{
+				try{
+					const response = await fetch("http://192.168.0.111:4000/students/info", {
+						method: "GET",
+						body: JSON.stringify({
+							course_id,
+							name,
+							percentage
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 
-				// 	if (response.ok) {
-				// 		const data = await response.json();
-				// 		return data;
-				// 	} else {
-				// 		return null;
-				// 	}
-				// } catch {
-				// 	return null;
-				//}
-			//},
+					if (response.ok) {
+						const data = await response.json();
+						return data;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
+			},
 		}
 	};
 };

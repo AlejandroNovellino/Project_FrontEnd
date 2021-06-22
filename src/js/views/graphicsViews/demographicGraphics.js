@@ -4,7 +4,7 @@ import { Pie } from "react-chartjs-2"
 
 export const demographicGraphics = () => {
 	const data={
-		// labels:['']
+		// labels:['getDemograficInfo']
 		// dataset:[{
 		// 	backgroundcolor:{}
 		// }]
