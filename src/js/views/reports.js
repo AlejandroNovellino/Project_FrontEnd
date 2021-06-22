@@ -8,7 +8,7 @@ export const Reports = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Container fluid className="bg-dark h-100 p-5">
+		<Container fluid className="bg-primary h-100 p-5">
 			<Jumbotron className="m-0 pt-2 pb-4">
 				<Row>
 					<Col xs={12}>
