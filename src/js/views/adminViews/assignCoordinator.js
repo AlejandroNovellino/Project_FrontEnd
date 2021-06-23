@@ -17,7 +17,10 @@ export const AssignCoordinator = () => {
 					<h2 className="text-center my-3"> Asignar Coordinador </h2>
 				</Row>
 				<Row className="m-auto">
-					<input className="form-control mb-4" placeholder="Escriba el nombre" />
+					<input
+						className="form-control mb-4"
+						placeholder="Escriba el nombre"
+					/>
 				</Row>
 				<Row className="m-auto">
 					<Table striped bordered hover>
