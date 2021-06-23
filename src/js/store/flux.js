@@ -338,6 +338,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch {
 					return null;
 				}
+			},
+			createInfoFile: async neededInfo => {
+				try {
+					const response = await fetch(`${URLAPI}/create/${neededInfo}/file`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "multipart/form-data"
+						}
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						return data.fileName;
+					} else {
+						return false;
+					}
+				} catch {
+					return false;
+				}
+			},
+			getFile: async (nature, fileName) => {
+				try {
+					const response = await fetch(`${URLAPI}/static-file/${nature}/${fileName}`);
+
+					if (response.ok) {
+						return true;
+					} else {
+						return null;
+					}
+				} catch {
+					return null;
+				}
 			}
 		}
 	};

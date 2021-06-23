@@ -20,7 +20,7 @@ import { AddProfessor } from "./views/adminViews/addProfessor";
 import { AddStudent } from "./views/adminViews/addStudent";
 import { AddEvaPlan } from "./views/coordViews/addEvaPlan";
 import { AssignCoordinator } from "./views/adminViews/assignCoordinator";
-import { Reports } from "./views/reports";
+import { Reports } from "./views/reportViews/reports";
 import { Graphics } from "./views/graphicsViews/graphics";
 import { DemographicGraphics } from "./views/graphicsViews/demographicGraphics";
 import { StudentGraphics } from "./views/graphicsViews/studentGraphics";
