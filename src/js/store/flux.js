@@ -1,3 +1,4 @@
+const URLAPI = "https://4000-bronze-dog-y2oogqan.ws-us08.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -10,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a function
 			logIn: async (email, password) => {
-				let response = await fetch("http://192.168.0.111:4000/log-in", {
+				let response = await fetch(`${URLAPI}/log-in`, {
 					method: "POST",
 					body: JSON.stringify({
 						email,
@@ -47,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 			uploadCathedrasFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-cathedras", {
+				const response = await fetch(`${URLAPI}/upload-cathedras`, {
 					method: "POST",
 					body: myFile
 				});
@@ -59,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			uploadCoursesFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-courses", {
+				const response = await fetch(`${URLAPI}/upload-courses`, {
 					method: "POST",
 					body: myFile
 				});
@@ -71,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			uploadGradesFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-grades", {
+				const response = await fetch(`${URLAPI}/upload-grades`, {
 					method: "POST",
 					body: myFile
 				});
@@ -83,7 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			uploadProfessorsFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-professors", {
+				const response = await fetch(`${URLAPI}/upload-professors`, {
 					method: "POST",
 					body: myFile
 				});
@@ -95,7 +96,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			uploadStudentsFile: async myFile => {
-				const response = await fetch("http://192.168.0.111:4000/upload-students", {
+				const response = await fetch(`${URLAPI}/upload-students`, {
 					method: "POST",
 					body: myFile
 				});
@@ -120,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllCareers: async () => {
 				try {
-					let response = await fetch("http://192.168.0.111:4000/careers");
+					let response = await fetch(`${URLAPI}/careers`);
 
 					if (response.ok) {
 						const data = await response.json();
@@ -139,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllElementInfo: async elementName => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/" + elementName + "/info");
+					const response = await fetch(`${URLAPI}${elementName}/info`);
 
 					if (response.ok) {
 						const data = await response.json();
@@ -153,7 +154,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllCathedrasFromCareer: async career => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/cathedras/" + career);
+					const response = await fetch(`${URLAPI}/cathedras/${career}`);
 
 					if (response.ok) {
 						const data = await response.json();
@@ -169,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getActivesCoursesFromCareer: async career => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/courses/" + career);
+					const response = await fetch(`${URLAPI}/courses/${career}`);
 
 					if (response.ok) {
 						const data = await response.json();
@@ -183,7 +184,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCourseByCode: async code => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/courses/byCode/" + code);
+					const response = await fetch(`${URLAPI}/courses/byCode/${code}`);
 					if (response.ok) {
 						const data = response.json();
 						return data;
@@ -196,7 +197,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createUser: async (email, password, role, professor_id) => {
 				try {
-					let response = await fetch("http://192.168.0.111:4000/sign-up", {
+					let response = await fetch(`${URLAPI}/sign-up`, {
 						method: "POST",
 						body: {
 							email: email,
@@ -221,7 +222,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createProfessor: async (...params) => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/professor", {
+					const response = await fetch(`${URLAPI}/professor`, {
 						method: "POST",
 						body: JSON.stringify({
 							fullName: params[0],
@@ -245,7 +246,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createStudent: async (...params) => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/student", {
+					const response = await fetch(`${URLAPI}/student`, {
 						method: "POST",
 						body: JSON.stringify({
 							fullName: params[0],
@@ -272,7 +273,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createInscription: async (student_id, course_id) => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/inscription", {
+					const response = await fetch(`${URLAPI}/inscription`, {
 						method: "GET",
 						body: JSON.stringify({
 							student_id: student_id,
@@ -294,7 +295,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createEvaluation: async (course_id, name, percentage) => {
 				try {
-					const response = await fetch("http://192.168.0.111:4000/evaluation", {
+					const response = await fetch(`${URLAPI}/evaluation`, {
 						method: "POST",
 						body: JSON.stringify({
 							course_id,
@@ -315,7 +316,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch {
 					return null;
 				}
-			},
+			}
 		}
 	};
 };
