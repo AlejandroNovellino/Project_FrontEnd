@@ -20,11 +20,13 @@ export const AssignCoordinator = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 
+	//const
+
 	return (
-		<Container fluid className="bg-primary p-5">
+		<Container fluid className="bg-primary h-100 p-5">
 			<Jumbotron className="m-0 pt-2 pb-4">
-				<Row>
-					<h2 className="m-auto"> Asignar Coordinador </h2>
+				<Row className="justify-content-center">
+					<h2 className="text-center my-3"> Asignar Coordinador </h2>
 				</Row>
 				<Row>
 					<input className="form-control" placeholder="escriba el nombre" />

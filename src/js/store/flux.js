@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: {},
 			nationalities: [],
 			careers: [],
-			cathedras: []
+			cathedras: [],
 		},
 		actions: {
 			// Use getActions to call a function within a function
@@ -15,17 +15,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "POST",
 					body: JSON.stringify({
 						email,
-						password
+						password,
 					}),
 					headers: {
-						"Content-Type": "application/json"
-					}
+						"Content-Type": "application/json",
+					},
 				});
 				if (response.ok) {
 					let body = await response.json();
 					setStore({
 						token: body.token,
-						user: body.user
+						user: body.user,
 					});
 					localStorage.setItem("token", body.token);
 					localStorage.setItem("user", JSON.stringify(body.user));
@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logOut: _ => {
 				setStore({
 					token: "",
-					user: null
+					user: null,
 				});
 				localStorage.removeItem("token");
 				localStorage.removeItem("user");
@@ -44,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setToken: (token, user) => {
 				setStore({
 					token,
-					user: JSON.parse(user)
+					user: JSON.parse(user),
 				});
 			},
 			uploadCathedrasFile: async myFile => {
@@ -108,12 +108,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getAllCountries: async _ => {
-				let response = await fetch("https://restcountries.eu/rest/v2/all?fields=name");
+				let response = await fetch(
+					"https://restcountries.eu/rest/v2/all?fields=name"
+				);
 
 				if (response.ok) {
 					const data = await response.json();
 					setStore({
-						nationalities: data
+						nationalities: data,
 					});
 				} else {
 					return null;
@@ -129,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							return element[0].toUpperCase() + element.slice(1);
 						});
 						setStore({
-							careers: careers
+							careers: careers,
 						});
 					} else {
 						return null;
@@ -159,7 +161,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const data = await response.json();
 						setStore({
-							cathedras: data
+							cathedras: data,
 						});
 					} else {
 						return null;
@@ -207,8 +209,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						header: {
 							"Content-Type": "application/json"
-						}
-					});
+						},}
+					);
 
 					if (response.ok) {
 						const new_professor = response.json();
@@ -238,8 +240,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}),
 						headers: {
 							"Content-Type": "application/json"
-						}
-					});
+						},}
+					);
 				} catch {
 					return null;
 				}
@@ -259,8 +261,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}),
 						headers: {
 							"Content-Type": "application/json"
-						}
-					});
+						},}
+					);
 					if (response.ok) {
 						const data = response.json();
 						return data;
@@ -281,8 +283,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}),
 						headers: {
 							"Content-Type": "application/json"
-						}
-					});
+						},}
+					);
 					if (response.ok) {
 						const data = response.json();
 						return data;
@@ -304,8 +306,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}),
 						headers: {
 							"Content-Type": "application/json"
-						}
-					});
+						},}
+					);
 
 					if (response.ok) {
 						const data = await response.json();
