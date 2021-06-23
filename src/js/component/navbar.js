@@ -31,12 +31,18 @@ export const AppNavbar = ({ role }) => {
 		actions.logOut();
 	};
 
+	const navbarButtonAction = e => {
+		if (store.token == "") return null;
+
+		history.push("/home");
+	};
+
 	return (
 		<Navbar bg="light" expand="md">
 			<Navbar.Brand>
 				<img src={u_metric_academy} width="40" height="40" className="d-inline-block align-top" />
 			</Navbar.Brand>
-			<Navbar.Brand type="button" onClick={e => history.push("/home")}>
+			<Navbar.Brand type="button" onClick={navbarButtonAction}>
 				UMetricAcademy
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
