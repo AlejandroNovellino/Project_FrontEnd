@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useContext} from "react";
-import ReactDOM from "react-dom";
-import { Pie } from "react-chartjs-2"
+import React, { useState, useEffect, useContext } from "react";
+import { Container, Row, Button } from "react-bootstrap";
+import { Pie } from "react-chartjs-2";
 
-export const demographicGraphics = () => {
+import { Context } from "../../store/appContext";
+
+export const DemographicGraphics = () => {
 	const { store, actions } = useContext(Context);
 	const [demograficInfo, setDemograficInfo] = useState();
 
@@ -20,19 +22,22 @@ export const demographicGraphics = () => {
 					<h2>Grafica de la informacion demografia de mis estudiantes</h2>
 				</Row>
 				<Row className="justify-content-center h-25">
-					<div className="custom-file m-auto">{demograficInfo &&
-									demograficInfo.map((element, index) => {
-										return (<Pie key={index}>
-										{element.age} 
+					<div className="custom-file m-auto">
+						{demograficInfo &&
+							demograficInfo.map((element, index) => {
+								return (
+									<Pie key={index}>
+										{element.age}
 										{element.nationality}
-										{element.residence} 
+										{element.residence}
 										{element.career}
-										</Pie>);
-					})}
+									</Pie>
+								);
+							})}
 					</div>
 				</Row>
 				<Row className="h-25">
-					<Button variant="primary" size="lg" className="m-auto" onClick={}>
+					<Button variant="primary" size="lg" className="m-auto">
 						Cargar
 					</Button>
 				</Row>
@@ -40,5 +45,3 @@ export const demographicGraphics = () => {
 		</Container>
 	);
 };
-
-export default demographicGraphics;

@@ -1,16 +1,48 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-export const graphics = () => {
+export const Graphics = () => {
+	const history = useHistory();
+
 	return (
-		<>
-		<ButtonToolbar aria-label="Toolbar with button groups">
-				<Button size="lg" className="mb-2" variant="secondary">Graficas sobre Informacion demografica</Button> 
-				<Button size="lg" className="mb-2" variant="secondary">Graficas sobre el desempeño del profesore</Button> 
-				<Button size="lg" className="mb-2" variant="secondary">GRafias sobre el desempeño de un estudiantes</Button>
-		</ButtonToolbar>
-        </>
+		<Container fluid className="bg-primary h-100 p-5">
+			<Jumbotron className="m-0 pt-2 pb-4">
+				<Row>
+					<Col xs={12}>
+						<h2 className="text-center my-3">Graficas para generar disponibles</h2>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={4}>
+						<Button
+							size="lg"
+							className="btn-block mb-2"
+							variant="secondary"
+							onClick={_ => history.push("/demographicGraphics")}>
+							Informacion demografica
+						</Button>
+					</Col>
+					<Col xs={4}>
+						<Button
+							size="lg"
+							className="btn-block mb-2"
+							variant="secondary"
+							onClick={_ => history.push("/studentGraphics")}>
+							Desempeño de profesores
+						</Button>
+					</Col>
+					<Col xs={4}>
+						<Button
+							size="lg"
+							className="btn-block mb-2"
+							variant="secondary"
+							onClick={_ => history.push("/teachersGraphic")}>
+							Desempeño de estudiantes
+						</Button>
+					</Col>
+				</Row>
+			</Jumbotron>
+		</Container>
 	);
 };
-
-export default graphics;

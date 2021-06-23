@@ -18,7 +18,10 @@ export const Home = () => {
 				<Col xs={3} className="bg-dark h-100 py-2">
 					<Nav variant="pills" defaultActiveKey="" className="flex-column">
 						<Nav.Item>
-							<Button className="text-center btn-block my-1" variant="secondary">
+							<Button
+								className="text-center btn-block my-1"
+								variant="secondary"
+								onClick={_ => history.push("/graphics")}>
 								Graficos
 							</Button>
 						</Nav.Item>

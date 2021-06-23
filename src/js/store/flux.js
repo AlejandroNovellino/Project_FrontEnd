@@ -140,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllElementInfo: async elementName => {
 				try {
-					const response = await fetch(`${URLAPI}${elementName}/info`);
+					const response = await fetch(`${URLAPI}/${elementName}/info`);
 
 					if (response.ok) {
 						const data = await response.json();

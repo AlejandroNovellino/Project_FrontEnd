@@ -21,6 +21,10 @@ import { AddStudent } from "./views/adminViews/addStudent";
 import { AddEvaPlan } from "./views/coordViews/addEvaPlan";
 import { AssignCoordinator } from "./views/adminViews/assignCoordinator";
 import { Reports } from "./views/reports";
+import { Graphics } from "./views/graphicsViews/graphics";
+import { DemographicGraphics } from "./views/graphicsViews/demographicGraphics";
+import { StudentGraphics } from "./views/graphicsViews/studentGraphics";
+import { TeachersGraphic } from "./views/graphicsViews/teachersGraphic";
 
 import { AppNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -87,6 +91,18 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/reports">
 							<Reports />
+						</Route>
+						<Route exact path="/graphics">
+							<Graphics />
+						</Route>
+						<Route exact path="/demographicGraphics">
+							<DemographicGraphics />
+						</Route>
+						<Route exact path="/studentGraphics">
+							<StudentGraphics />
+						</Route>
+						<Route exact path="/teachersGraphic">
+							<TeachersGraphic />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
