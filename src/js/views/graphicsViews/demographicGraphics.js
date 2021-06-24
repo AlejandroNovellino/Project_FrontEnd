@@ -1,20 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Button } from "react-bootstrap";
-import { Pie } from "react-chartjs-2";
+import { Bubble, Pie } from "react-chartjs-2";
 
 import { Context } from "../../store/appContext";
 
 export const DemographicGraphics = () => {
 	const { store, actions } = useContext(Context);
-	const [demograficInfo, setDemograficInfo] = useState();
+	const [demograficInfo, setDemograficInfo] = useState("");
+	const [graphicInfo, setGraphicData] = useState("");
 
-	// const data = {
-	// 	labels:
-	// 	dataset:[{
-	// 		data:
-
-	// 	}],
-	// };
+	setGraphicData(_ => {
+		const data = {
+			labels: this.state.info,
+			dataset: [
+				{
+					data: this.state.info,
+					backgroundColor: black
+				}
+			]
+		};
+	}, []);
 
 	const getInfo = async () => {
 		const info = await actions.getAllElementInfo();
@@ -39,7 +44,7 @@ export const DemographicGraphics = () => {
 				</Row>
 				<Row className="justify-content-center h-25">
 					<div className="custom-file m-auto">
-						<Pie data={demograficInfo} />
+						<Pie data={this.state.info} />
 					</div>
 				</Row>
 				<Row className="h-25">
