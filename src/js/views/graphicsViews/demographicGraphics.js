@@ -24,9 +24,9 @@ export const DemographicGraphics = () => {
 	useEffect(_ => {
 		const getDemograficInfo = async _ => {
 			const aux = await actions.getAllElementInfo("students");
-			const graphicInfo = aux.reduce((accum,element)=>{
-				return element.nacionality
-			},[]); 
+			const graphicInfo = aux.reduce((accum, element) => {
+				return element.nacionality;
+			}, []);
 			setDemograficInfo(aux);
 		};
 		getDemograficInfo();
