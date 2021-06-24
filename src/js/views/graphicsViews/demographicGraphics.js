@@ -44,7 +44,7 @@ export const DemographicGraphics = () => {
 				</Row>
 				<Row className="justify-content-center h-25">
 					<div className="custom-file m-auto">
-						<Pie data={this.state.info} />
+						<Pie data={graphicInfo} />
 					</div>
 				</Row>
 				<Row className="h-25">

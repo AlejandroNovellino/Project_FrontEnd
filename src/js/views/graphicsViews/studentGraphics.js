@@ -6,6 +6,7 @@ import { Context } from "../../store/appContext";
 export const StudentGraphics = () => {
 	const { store, actions } = useContext(Context);
 	const [StudentInfo, setStudentInfo] = useState();
+
 	const getInfo = async () => {
 		const info = await actions.getAllElementInfo();
 		const response = await actions.getInfo("Info", info);
@@ -15,7 +16,7 @@ export const StudentGraphics = () => {
 		const getStudentInfo = async _ => {
 			const aux = await actions.getAllElementInfo("students");
 			const graphicInfo = aux.reduce((accum, element) => {
-				return element.grades;
+				return element.Grades;
 			}, []);
 			setStudentInfo(aux);
 		};
@@ -23,7 +24,7 @@ export const StudentGraphics = () => {
 	}, []);
 
 	const data = {
-		labels: [element.grades],
+		labels: [],
 		datasets: [
 			{
 				label: "notas",
@@ -32,7 +33,7 @@ export const StudentGraphics = () => {
 				borderWidth: 1,
 				hoverBackgroundColor: "rgba(0,255,0,1)",
 				hooverBorderColor: "#FF0000",
-				data: "Students"
+				data: "students"
 			}
 		]
 	};
