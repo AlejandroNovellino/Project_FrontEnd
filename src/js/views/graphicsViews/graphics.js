@@ -20,16 +20,7 @@ export const Graphics = () => {
 							className="btn-block mb-2"
 							variant="secondary"
 							onClick={_ => history.push("/demographicGraphics")}>
-							Informacion demografica
-						</Button>
-					</Col>
-					<Col xs={4}>
-						<Button
-							size="lg"
-							className="btn-block mb-2"
-							variant="secondary"
-							onClick={_ => history.push("/studentGraphics")}>
-							Desempeño de profesores
+							Informacion demografica estudiantes
 						</Button>
 					</Col>
 					<Col xs={4}>
@@ -38,7 +29,16 @@ export const Graphics = () => {
 							className="btn-block mb-2"
 							variant="secondary"
 							onClick={_ => history.push("/teachersGraphic")}>
-							Desempeño de estudiantes
+							Informacion demografica profesores
+						</Button>
+					</Col>
+					<Col xs={4}>
+						<Button
+							size="lg"
+							className="btn-block mb-2"
+							variant="secondary"
+							onClick={_ => history.push("/studentGraphics")}>
+							Estudiantes por carrera
 						</Button>
 					</Col>
 				</Row>
