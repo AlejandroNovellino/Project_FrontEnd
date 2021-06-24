@@ -31,7 +31,7 @@ export const DemographicGraphics = () => {
 		labels: Object.keys(graphicData),
 		datasets: [
 			{
-				label: "# of Votes",
+				label: "# of persona with this nationality",
 				data: Object.values(graphicData),
 				backgroundColor: [
 					"rgba(255, 99, 132, 0.2)",
