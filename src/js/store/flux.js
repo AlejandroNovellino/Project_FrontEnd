@@ -1,4 +1,4 @@
-const URLAPI = "https://4000-bronze-dog-y2oogqan.ws-us08.gitpod.io";
+const URLAPI = "http://192.168.0.111:4000";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -358,18 +358,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
-			getFile: async (nature, fileName) => {
-				try {
-					const response = await fetch(`${URLAPI}/static-file/${nature}/${fileName}`);
-
-					if (response.ok) {
-						return true;
-					} else {
-						return null;
-					}
-				} catch {
-					return null;
-				}
+			getFileUrl: async (nature, fileName) => {
+				return `${URLAPI}/static-file/${nature}/${fileName}`;
 			}
 		}
 	};

@@ -1,16 +1,30 @@
 //import react into the bundle
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { Container, Row, Col, Button, Jumbotron } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Reports = () => {
 	const { store, actions } = useContext(Context);
+	const [urls, setUrls] = useState([]);
 
-	const getFile = async neededInfo => {
-		let fileName = await actions.createInfoFile(neededInfo);
-		const response = await actions.getFile("reports", fileName);
-	};
+	useEffect(
+		() => {
+			const getFile = async neededInfo => {
+				let aux = [];
+				for (let neededInfo of ["careers", "cathedras", "professors", "students"]) {
+					let fileName = await actions.createInfoFile(neededInfo);
+					const url = await actions.getFileUrl("reports", fileName);
+					aux.push(url);
+				}
+				setUrls(aux);
+			};
+
+			getFile();
+		},
+		[actions.createInfoFile, actions.getFileUrl]
+	);
 
 	return (
 		<Container fluid className="bg-primary h-100 p-5">
@@ -21,78 +35,49 @@ export const Reports = () => {
 					</Col>
 				</Row>
 
-				{store.user.role == "admin" ? (
-					<Row>
-						<Col xs={3}>
-							<Button
-								className="text-center btn-block my-1"
-								variant="secondary"
-								onClick={e => getFile("careers")}>
-								Informacion de todas las carreras
-							</Button>
-						</Col>
-						<Col xs={3}>
-							<Button
-								className="text-center btn-block my-1"
-								variant="secondary"
-								onClick={e => getFile("cathedras")}>
-								Informacion de todas las materias
-							</Button>
-						</Col>
-						<Col xs={3}>
-							<Button
-								className="text-center btn-block my-1"
-								variant="secondary"
-								onClick={e => getFile("professors")}>
-								Informacion de todas los profesores
-							</Button>
-						</Col>
-						<Col xs={3}>
-							<Button
-								className="text-center btn-block my-1"
-								variant="secondary"
-								onClick={e => getFile("students")}>
-								Informacion de todos los estudiantes
-							</Button>
-						</Col>
-					</Row>
-				) : store.user.role == "coordinator" ? (
-					<Row>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de mis materias
-							</Button>
-						</Col>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de mis profesores
-							</Button>
-						</Col>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de mis estudiantes
-							</Button>
-						</Col>
-					</Row>
-				) : (
-					<Row>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todas las carreras
-							</Button>
-						</Col>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todas las materias
-							</Button>
-						</Col>
-						<Col xs={4}>
-							<Button className="text-center btn-block my-1" variant="secondary">
-								Informacion de todos los estudiantes
-							</Button>
-						</Col>
-					</Row>
-				)}
+				<Row>
+					<Col xs={3}>
+						<a
+							className="btn btn-secondary btn-block text-center my-1"
+							variant="secondary"
+							href={urls[0]}
+							target="_blank"
+							rel="noopener noreferrer"
+							role="button">
+							Informacion de todas las carreras
+						</a>
+					</Col>
+					<Col xs={3}>
+						<a
+							className="btn btn-secondary btn-block text-center my-1"
+							href={urls[1]}
+							target="_blank"
+							rel="noopener noreferrer"
+							role="button">
+							Informacion de todas las materias
+						</a>
+					</Col>
+					<Col xs={3}>
+						<a
+							className="btn btn-secondary btn-block text-center my-1"
+							href={urls[2]}
+							target="_blank"
+							rel="noopener noreferrer"
+							role="button">
+							Informacion de todas los profesores
+						</a>
+					</Col>
+					<Col xs={3}>
+						<a
+							className="btn btn-secondary btn-block text-center my-1"
+							href={urls[3]}
+							target="_blank"
+							rel="noopener noreferrer"
+							role="button">
+							Informacion de todos los estudiantes
+						</a>
+					</Col>
+				</Row>
 			</Jumbotron>
 		</Container>
 	);
