@@ -6,27 +6,42 @@ import { Context } from "../../store/appContext";
 
 export const DemographicGraphics = () => {
 	const { store, actions } = useContext(Context);
-	const [labels, setLabels] = useState("");
-	const [graphicInfo, setGraphicData] = useState("");
+	const [graphicData, setGraphicData] = useState([]);
 
 	useEffect(_ => {
-		const getDemograficInfo = async _ => {
+		const getInfo = async _ => {
 			const aux = await actions.getAllElementInfo("students");
-			const graphicInfo = aux.map(element => {
-				return element.nationality;
+
+			const auxLabels = aux.map(element => {
+				return {
+					label: element.nationality,
+					value: 0
+				};
 			});
-			console.log(graphicInfo);
-			setLabels(aux);
+
+			const auxData = aux.reduce((arr, element) => {
+				const nationality = element.nationality;
+				if (Object.keys(arr).includes(nationality)) {
+					arr[nationality] += 1;
+				} else {
+					arr[nationality] = 1;
+				}
+				return arr;
+			}, []);
+
+			console.log(auxData);
+
+			setGraphicData(auxData);
 		};
-		getDemograficInfo();
+		getInfo();
 	}, []);
 
 	const data = {
-		labels: labels,
+		labels: Object.keys(graphicData),
 		datasets: [
 			{
 				label: "# of Votes",
-				data: [12, 19, 3, 5, 2, 3],
+				data: Object.values(graphicData),
 				backgroundColor: [
 					"rgba(255, 99, 132, 0.2)",
 					"rgba(54, 162, 235, 0.2)",
@@ -47,6 +62,8 @@ export const DemographicGraphics = () => {
 			}
 		]
 	};
+
+	//console.log(data);
 
 	return (
 		<Container fluid className="bg-primary p-5">
