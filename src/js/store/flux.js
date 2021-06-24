@@ -358,18 +358,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
-			getFile: async (nature, fileName) => {
-				try {
-					const response = await fetch(`${URLAPI}/static-file/${nature}/${fileName}`);
-
-					if (response.ok) {
-						return true;
-					} else {
-						return null;
-					}
-				} catch {
-					return null;
-				}
+			getFileUrl: async (nature, fileName) => {
+				return `${URLAPI}/static-file/${nature}/${fileName}`;
 			}
 		}
 	};
