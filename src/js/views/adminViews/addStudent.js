@@ -41,6 +41,19 @@ export const AddStudent = () => {
 		setCoursesCodes(values);
 	};
 
+	const emptyStates = _ => {
+		setName("");
+		setEmail("");
+		setDni("");
+		setPhoneNumber("");
+		setAge("");
+		setNationality("");
+		setResidence("");
+		setCareer({});
+		setActiveCourses([]);
+		setCoursesCodes([]);
+	};
+
 	const createStudent = async _ => {
 		const newStudent = await actions.createStudent(
 			name,
@@ -56,6 +69,9 @@ export const AddStudent = () => {
 			const course = await actions.getCourseByCode(courseCode);
 			const new_inscription = await actions.createInscription(newStudent.id, course.id);
 		}
+
+		alert("Estudiante creado");
+		emptyStates();
 	};
 
 	return (
