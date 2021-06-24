@@ -15,13 +15,13 @@ export const Students = () => {
 	}, []);
 
 	return (
-		<Container fluid className="bg-primary p-5 h-100">
-			<Jumbotron className="py-4">
+		<Container fluid className="bg-primary p-5">
+			<Jumbotron className="py-4 d-flex flex-column">
 				<Row className="justify-content-center">
 					<p className="display-4 mt-2 mb-3">Informacion de los Estudiantes</p>
 				</Row>
-				<Row className="h-75">
-					<Col xs={12} className="h-100">
+				<Row className="">
+					<Col xs={12} className="">
 						<Table striped bordered hover variant="dark">
 							<thead>
 								<tr>

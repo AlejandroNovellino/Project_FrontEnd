@@ -30,15 +30,15 @@ export const AssignCoordinator = () => {
 	}, []);
 
 	return (
-		<Container fluid className="bg-primary h-100 p-5">
-			<Jumbotron className="m-0 pt-2 pb-4">
+		<Container fluid className="bg-primary p-5">
+			<Jumbotron className="py-4 d-flex flex-column">
 				<Row className="justify-content-center">
 					<h2 className="text-center my-3"> Asignar Coordinador </h2>
 				</Row>
-				<Row className="m-auto">
+				<Row className="">
 					<input className="form-control mb-4" placeholder="Escriba el nombre" />
 				</Row>
-				<Row className="m-auto">
+				<Row className="">
 					<Table striped bordered hover variant="dark">
 						<thead>
 							<tr>
