@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: {},
 			nationalities: [],
 			careers: [],
-			cathedras: [],
+			cathedras: []
 		},
 		actions: {
 			// Use getActions to call a function within a function
@@ -16,17 +16,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST",
 						body: JSON.stringify({
 							email,
-							password,
+							password
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 					if (response.ok) {
 						let body = await response.json();
 						setStore({
 							token: body.token,
-							user: body.user,
+							user: body.user
 						});
 						localStorage.setItem("token", body.token);
 						localStorage.setItem("user", JSON.stringify(body.user));
@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logOut: _ => {
 				setStore({
 					token: "",
-					user: null,
+					user: null
 				});
 				localStorage.removeItem("token");
 				localStorage.removeItem("user");
@@ -48,14 +48,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setToken: (token, user) => {
 				setStore({
 					token,
-					user: JSON.parse(user),
+					user: JSON.parse(user)
 				});
 			},
 			uploadCathedrasFile: async myFile => {
 				try {
 					const response = await fetch(`${URLAPI}/upload-cathedras`, {
 						method: "POST",
-						body: myFile,
+						body: myFile
 					});
 
 					if (response.ok) {
@@ -71,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`${URLAPI}/upload-courses`, {
 						method: "POST",
-						body: myFile,
+						body: myFile
 					});
 
 					if (response.ok) {
@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`${URLAPI}/upload-grades`, {
 						method: "POST",
-						body: myFile,
+						body: myFile
 					});
 
 					if (response.ok) {
@@ -101,13 +101,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			uploadProfessorsFile: async myFile => {
 				try {
-					const response = await fetch(
-						`${URLAPI}/upload-professors`,
-						{
-							method: "POST",
-							body: myFile,
-						}
-					);
+					const response = await fetch(`${URLAPI}/upload-professors`, {
+						method: "POST",
+						body: myFile
+					});
 
 					if (response.ok) {
 						return true;
@@ -122,7 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`${URLAPI}/upload-students`, {
 						method: "POST",
-						body: myFile,
+						body: myFile
 					});
 
 					if (response.ok) {
@@ -136,14 +133,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllCountries: async _ => {
 				try {
-					let response = await fetch(
-						"https://restcountries.eu/rest/v2/all?fields=name"
-					);
+					let response = await fetch("https://restcountries.eu/rest/v2/all?fields=name");
 
 					if (response.ok) {
 						const data = await response.json();
 						setStore({
-							nationalities: data,
+							nationalities: data
 						});
 					} else {
 						return [];
@@ -162,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							return element[0].toUpperCase() + element.slice(1);
 						});
 						setStore({
-							careers: careers,
+							careers: careers
 						});
 					} else {
 						return null;
@@ -173,9 +168,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllElementInfo: async elementName => {
 				try {
-					const response = await fetch(
-						`${URLAPI}/${elementName}/info`
-					);
+					const response = await fetch(`${URLAPI}/${elementName}/info`);
 
 					if (response.ok) {
 						const data = await response.json();
@@ -189,14 +182,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllCathedrasFromCareer: async career => {
 				try {
-					const response = await fetch(
-						`${URLAPI}/cathedras/${career}`
-					);
+					const response = await fetch(`${URLAPI}/cathedras/${career}`);
 
 					if (response.ok) {
 						const data = await response.json();
 						setStore({
-							cathedras: data,
+							cathedras: data
 						});
 					} else {
 						return null;
@@ -221,9 +212,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCourseByCode: async code => {
 				try {
-					const response = await fetch(
-						`${URLAPI}/courses/byCode/${code}`
-					);
+					const response = await fetch(`${URLAPI}/courses/byCode/${code}`);
 					if (response.ok) {
 						const data = response.json();
 						return data;
@@ -242,11 +231,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 							email: email,
 							password: password,
 							role: role,
-							professor_id: professor_id,
+							professor_id: professor_id
 						},
 						header: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 
 					if (response.ok) {
@@ -273,11 +262,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 							career: params[6],
 							cathedras: params[7],
 							email: params[8],
-							role: params[9],
+							role: params[9]
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 				} catch {
 					return null;
@@ -294,11 +283,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 							age: params[3],
 							nationality: params[4],
 							residence: params[5],
-							career: params[6],
+							career: params[6]
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 					if (response.ok) {
 						const data = response.json();
@@ -316,11 +305,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "GET",
 						body: JSON.stringify({
 							student_id: student_id,
-							course_id: course_id,
+							course_id: course_id
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 					if (response.ok) {
 						const data = response.json();
@@ -339,11 +328,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify({
 							course_id,
 							name,
-							percentage,
+							percentage
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 
 					if (response.ok) {
@@ -361,11 +350,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(`${URLAPI}/users/${email}`, {
 						method: "PUT",
 						body: JSON.stringify({
-							role,
+							role
 						}),
 						headers: {
-							"Content-Type": "application/json",
-						},
+							"Content-Type": "application/json"
+						}
 					});
 
 					if (response.ok) {
@@ -380,15 +369,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createInfoFile: async neededInfo => {
 				try {
-					const response = await fetch(
-						`${URLAPI}/create/${neededInfo}/file`,
-						{
-							method: "POST",
-							headers: {
-								"Content-Type": "multipart/form-data",
-							},
+					const response = await fetch(`${URLAPI}/create/${neededInfo}/file`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "multipart/form-data"
 						}
-					);
+					});
 
 					if (response.ok) {
 						const data = await response.json();
@@ -402,8 +388,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getFileUrl: async (nature, fileName) => {
 				return `${URLAPI}/static-file/${nature}/${fileName}`;
-			},
-		},
+			}
+		}
 	};
 };
 
