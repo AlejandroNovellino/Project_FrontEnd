@@ -20,8 +20,8 @@ export const Students = () => {
 				<Row className="justify-content-center">
 					<p className="display-4 mt-2 mb-3">Informacion de los Estudiantes</p>
 				</Row>
-				<Row className="">
-					<Col xs={12} className="">
+				<Row>
+					<Col xs={12}>
 						<Table striped bordered hover variant="dark">
 							<thead>
 								<tr>

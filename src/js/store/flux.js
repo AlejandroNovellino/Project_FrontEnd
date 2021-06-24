@@ -1,4 +1,4 @@
-const URLAPI = "https://4000-coral-louse-uk8a68qd.ws-us08.gitpod.io";
+const URLAPI = "http://192.168.0.111:4000";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {

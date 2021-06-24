@@ -38,8 +38,8 @@ export const AddEvaPlan = () => {
 	};
 
 	return (
-		<Container fluid className="bg-primary p-5 h-100">
-			<Jumbotron className="py-4">
+		<Container fluid className="bg-primary p-5">
+			<Jumbotron className="py-4 d-flex flex-column">
 				<h2 className="text-center pb-2">
 					Plan de evaluacion {selectedCourse ? "para " + selectedCourse.title : ""}
 				</h2>
