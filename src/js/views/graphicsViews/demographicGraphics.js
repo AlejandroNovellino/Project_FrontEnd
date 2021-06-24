@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Container, Row, Button, Jumbotron } from "react-bootstrap";
+import { Container, Row, Col, Jumbotron } from "react-bootstrap";
 import { Pie } from "react-chartjs-2";
 
 import { Context } from "../../store/appContext";
@@ -12,13 +12,6 @@ export const DemographicGraphics = () => {
 		const getInfo = async _ => {
 			const aux = await actions.getAllElementInfo("students");
 
-			const auxLabels = aux.map(element => {
-				return {
-					label: element.nationality,
-					value: 0
-				};
-			});
-
 			const auxData = aux.reduce((arr, element) => {
 				const nationality = element.nationality;
 				if (Object.keys(arr).includes(nationality)) {
@@ -28,8 +21,6 @@ export const DemographicGraphics = () => {
 				}
 				return arr;
 			}, []);
-
-			console.log(auxData);
 
 			setGraphicData(auxData);
 		};
@@ -63,18 +54,16 @@ export const DemographicGraphics = () => {
 		]
 	};
 
-	//console.log(data);
-
 	return (
 		<Container fluid className="bg-primary p-5">
 			<Jumbotron className="m-0 pt-2 pb-4">
 				<Row className="justify-content-center h-25">
-					<h2>Grafica de la informacion demografia de los estudiantes</h2>
+					<h2 className="text-center">Grafica de la informacion demografia de los estudiantes</h2>
 				</Row>
 				<Row className="justify-content-center h-25">
-					<div className="custom-file m-auto">
-						<Pie height={80} width={80} data={data} />
-					</div>
+					<Col xs={12}>
+						<Pie id="pieChart" data={data} />
+					</Col>
 				</Row>
 			</Jumbotron>
 		</Container>
