@@ -11,27 +11,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a function
 			logIn: async (email, password) => {
-				let response = await fetch(`${URLAPI}/log-in`, {
-					method: "POST",
-					body: JSON.stringify({
-						email,
-						password
-					}),
-					headers: {
-						"Content-Type": "application/json"
-					}
-				});
-				if (response.ok) {
-					let body = await response.json();
-					setStore({
-						token: body.token,
-						user: body.user
+				try {
+					let response = await fetch(`${URLAPI}/log-in`, {
+						method: "POST",
+						body: JSON.stringify({
+							email,
+							password
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
 					});
-					localStorage.setItem("token", body.token);
-					localStorage.setItem("user", JSON.stringify(body.user));
-					return true;
+					if (response.ok) {
+						let body = await response.json();
+						setStore({
+							token: body.token,
+							user: body.user
+						});
+						localStorage.setItem("token", body.token);
+						localStorage.setItem("user", JSON.stringify(body.user));
+						return true;
+					}
+					return false;
+				} catch {
+					return false;
 				}
-				return false;
 			},
 			logOut: _ => {
 				setStore({
@@ -48,75 +52,99 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 			uploadCathedrasFile: async myFile => {
-				const response = await fetch(`${URLAPI}/upload-cathedras`, {
-					method: "POST",
-					body: myFile
-				});
+				try {
+					const response = await fetch(`${URLAPI}/upload-cathedras`, {
+						method: "POST",
+						body: myFile
+					});
 
-				if (response.ok) {
-					return true;
-				} else {
+					if (response.ok) {
+						return true;
+					} else {
+						return false;
+					}
+				} catch {
 					return false;
 				}
 			},
 			uploadCoursesFile: async myFile => {
-				const response = await fetch(`${URLAPI}/upload-courses`, {
-					method: "POST",
-					body: myFile
-				});
+				try {
+					const response = await fetch(`${URLAPI}/upload-courses`, {
+						method: "POST",
+						body: myFile
+					});
 
-				if (response.ok) {
-					return true;
-				} else {
+					if (response.ok) {
+						return true;
+					} else {
+						return false;
+					}
+				} catch {
 					return false;
 				}
 			},
 			uploadGradesFile: async myFile => {
-				const response = await fetch(`${URLAPI}/upload-grades`, {
-					method: "POST",
-					body: myFile
-				});
+				try {
+					const response = await fetch(`${URLAPI}/upload-grades`, {
+						method: "POST",
+						body: myFile
+					});
 
-				if (response.ok) {
-					return true;
-				} else {
+					if (response.ok) {
+						return true;
+					} else {
+						return false;
+					}
+				} catch {
 					return false;
 				}
 			},
 			uploadProfessorsFile: async myFile => {
-				const response = await fetch(`${URLAPI}/upload-professors`, {
-					method: "POST",
-					body: myFile
-				});
+				try {
+					const response = await fetch(`${URLAPI}/upload-professors`, {
+						method: "POST",
+						body: myFile
+					});
 
-				if (response.ok) {
-					return true;
-				} else {
+					if (response.ok) {
+						return true;
+					} else {
+						return false;
+					}
+				} catch {
 					return false;
 				}
 			},
 			uploadStudentsFile: async myFile => {
-				const response = await fetch(`${URLAPI}/upload-students`, {
-					method: "POST",
-					body: myFile
-				});
+				try {
+					const response = await fetch(`${URLAPI}/upload-students`, {
+						method: "POST",
+						body: myFile
+					});
 
-				if (response.ok) {
-					return true;
-				} else {
+					if (response.ok) {
+						return true;
+					} else {
+						return false;
+					}
+				} catch {
 					return false;
 				}
 			},
 			getAllCountries: async _ => {
-				let response = await fetch("https://restcountries.eu/rest/v2/all?fields=name");
+				try {
+					let response = await fetch("https://restcountries.eu/rest/v2/all?fields=name");
 
-				if (response.ok) {
-					const data = await response.json();
-					setStore({
-						nationalities: data
-					});
-				} else {
-					return null;
+					if (response.ok) {
+						const data = await response.json();
+						setStore({
+							nationalities: data
+						});
+					} else {
+						return [];
+					}
+				} catch {
+					return [];
 				}
 			},
 			getAllCareers: async () => {
