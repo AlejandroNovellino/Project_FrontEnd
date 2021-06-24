@@ -40,6 +40,19 @@ export const AddProfessor = () => {
 		setCathedras(values);
 	};
 
+	const emptyStates = _ => {
+		setName("");
+		setEmail("");
+		setDni("");
+		setPhoneNumber("");
+		setAge("");
+		setNationality("");
+		setResidence("");
+		setRole(null);
+		setCareer({});
+		setCathedras([]);
+	};
+
 	const createProfessor = async e => {
 		await actions.createProfessor(
 			name,
@@ -53,7 +66,9 @@ export const AddProfessor = () => {
 			email,
 			parseInt(role)
 		);
+
 		alert("Profesor creado");
+		emptyStates();
 	};
 
 	return (
