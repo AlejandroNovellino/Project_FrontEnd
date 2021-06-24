@@ -1,4 +1,4 @@
-const URLAPI = "http://192.168.0.111:4000";
+const URLAPI = "https://4000-bronze-dog-y2oogqan.ws-us08.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {

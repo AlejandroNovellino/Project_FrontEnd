@@ -12,11 +12,12 @@ export const DemographicGraphics = () => {
 	useEffect(_ => {
 		const getDemograficInfo = async _ => {
 			const aux = await actions.getAllElementInfo("students");
-			const graphicInfo = aux.map(element => {
-				return element.nationality;
-			});
-			console.log(graphicInfo);
-			setLabels(aux);
+			console.log(aux);
+			// const graphicInfo = aux.map(element => {
+			// 	return element.nationality;
+			// });
+			// console.log(graphicInfo);
+			// setLabels(aux);
 		};
 		getDemograficInfo();
 	}, []);
