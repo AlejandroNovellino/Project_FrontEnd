@@ -34,20 +34,16 @@ export const TeachersGraphic = () => {
 				label: "# of persona with this nationality",
 				data: Object.values(graphicData),
 				backgroundColor: [
-					"rgba(255, 99, 132, 0.2)",
-					"rgba(54, 162, 235, 0.2)",
-					"rgba(255, 206, 86, 0.2)",
-					"rgba(75, 192, 192, 0.2)",
-					"rgba(153, 102, 255, 0.2)",
-					"rgba(255, 159, 64, 0.2)"
+					"rgba(87, 90, 108, 0.6)",
+					"rgba(179, 197, 64, 0.6)",
+					"rgba(224, 226, 210, 0.6)",
+					"rgba(54, 135, 201, 0.6)"
 				],
 				borderColor: [
-					"rgba(255, 99, 132, 1)",
-					"rgba(54, 162, 235, 1)",
-					"rgba(255, 206, 86, 1)",
-					"rgba(75, 192, 192, 1)",
-					"rgba(153, 102, 255, 1)",
-					"rgba(255, 159, 64, 1)"
+					"rgba(87, 90, 108, 1)",
+					"rgba(179, 197, 64, 1)",
+					"rgba(224, 226, 210, 1)",
+					"rgba(54, 135, 201, 1)"
 				],
 				borderWidth: 1
 			}
@@ -61,7 +57,7 @@ export const TeachersGraphic = () => {
 					<h2 className="text-center">Grafica de la informacion demografia de los profesores</h2>
 				</Row>
 				<Row className="justify-content-center h-25">
-					<Col xs={12}>
+					<Col xs={7}>
 						<Pie id="pieChart" data={data} />
 					</Col>
 				</Row>
