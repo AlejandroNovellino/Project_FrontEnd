@@ -58,7 +58,7 @@ export const DemographicGraphics = () => {
 				</Row>
 				<Row className="justify-content-center h-25">
 					<Col xs={7}>
-						<Pie id="pieChart" height={100} width={100} data={data} />
+						<Pie id="pieChart" data={data} />
 					</Col>
 				</Row>
 			</Jumbotron>
