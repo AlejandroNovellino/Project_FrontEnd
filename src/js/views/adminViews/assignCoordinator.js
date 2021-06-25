@@ -33,12 +33,9 @@ export const AssignCoordinator = () => {
 		<Container fluid className="bg-primary p-5">
 			<Jumbotron className="py-4 d-flex flex-column">
 				<Row className="justify-content-center">
-					<h2 className="text-center my-3"> Asignar Coordinador </h2>
+					<h2 className="text-center mb-4"> Asignar Coordinador </h2>
 				</Row>
-				<Row className="">
-					<input className="form-control mb-4" placeholder="Escriba el nombre" />
-				</Row>
-				<Row className="">
+				<Row>
 					<Table striped bordered hover variant="dark">
 						<thead>
 							<tr>
